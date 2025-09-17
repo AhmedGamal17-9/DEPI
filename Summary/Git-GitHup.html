@@ -180,86 +180,22 @@ git remote -v
 git remote add &lt;remote-repo-name&gt; &lt;Link Git-Hup Repo&gt;
 </pre><hr>
 - Pushes your code from the local Pushes your code from the local branch to the remote on GitHub.
-<pre>
+- (-u) : Use in first push to push andcreate a tracking relationship between them.
+<pre>  
 git push -u &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
+git push &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
 </pre><hr>
-    </section>
-    <section>
-      <h2>GitHup</h2>
-      <pre class="prew">
-- 
+- It fetches changes from the remote branch and merges them with the local branch it's currently on.
+- It's actually = fetch + merge.
 <pre>
-
+git pull &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
 </pre><hr>
-- 
+- It retrieves changes from the remote, but without merging.
+
+The changes are placed in refs (e.g., origin/main) and you can view them yourself before merging or rebase.
 <pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-- 
-<pre>
-
-</pre><hr>
-      </pre>      
+git fetch &lt;remote-repo-name&gt;
+</pre>
     </section>
 </body>
 </html>
