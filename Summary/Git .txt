@@ -1,3 +1,0 @@
-user.name=Ahmed Gamal
-user.email=ahmedgamal1792000@gmail.com
-repo name : DEPI
