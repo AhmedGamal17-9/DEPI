@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <section>
+      <pre>
+Box Model
+
+[top] [right] [bottom] [left]
+
+[top & bottom] [right & left]
+
+[top] [right & left] [bottom]
+-----------------------
+page = width + border + margin + padding
+لو العنصر معمول مية في المية عرض ومعاه بادنج مثلا هيبقا فيه سكرول بار
+لأن التلاتة دول بره العرض
+-----------------------
+::pseudo-element  تستخدم علشان نحدد جزء من العنصر نفسه ونتعامل معاه كأنه عنصر منفصل
+مثال :
+::first-line ;
+1- بيتحكم في شكل أول سطر من النص
+2- ✅ color, font (size, weight, style, variant), word-spacing, letter-spacing, line-height, text-decoration, text-transform, background, vertical-align.
+3- ❌ margin, padding, border, width, height, display, position, float, overflow, transform, box-shadow.
+
+::first-letter ; 
+1- شكل أول حرف من النص
+2- ✅ color, font (size, weight, style, variant), word-spacing, letter-spacing, line-height, text-decoration, text-transform, text-shadow, background, margin, padding, border.
+3- ❌ width, height, display, position, overflow, clear, transform.
+
+::after{
+  content: ""; لازم تكتب
+}
+::before ; {
+  content: ""; لازم تكتب
+}
+
+:pseudo-class  تستخدم علشان نحدد حالة معينة للعنصر أو وضعه بالنسبة للـ DOM
+مثال : 
+hover,active,focus,link,visited,
+first-child , last-child , nth-child()
+-----------------------
+display:grid; نظام يسمحلك تعمل تقسم العنصر صفوف و أعمدة
+
+fr: جزء نسبي من المساحة المتاحة
+
+grid-template-columns: 20%  20% 20%; 
+grid-template-rows: 100px 200px auto;
+grid-template-columns: repeat(3, 1fr);
+
+height:100%;
+grid-template-rows: minmax(minimum size,maximum size) 200px minmax(minimum size,maximum size);
+
+grid-column-gap: 10px; مسافة بين الأعمدة
+grid-row-gap: 20px; مسافة بين الصفوف
+
+gap: 1fr 1fr;
+
+align-items:; محاذاة رأسية ( بيتحكم في العناصر نفسها)
+
+align-content: ; محاذاة رأسية ( بيتحكم في الصفوف الي بين العناصر)
+
+justify-content:; محاذاة أفقية 
+تحديد مكان العنصر
+grid-column: grid-column-start / grid-column-end ; القيم هنا رقم العمود
+grid-row: grid-row-start / grid-row-end ; 
+grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end ;
+
+
+grid-template-areas:  تسمحلك ترسم layout بالكلمات
+    "header header"
+    "main main"
+    "footer footer" ;
+.header { grid-area: header; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+      </pre>
+      <hr><!------------------------------------------------------------------------------------>
+    <div id="div">
+      <div class="p"></div>
+      <div class="p"></div>
+      <div class="p"></div>
+      <div class="p"></div>
+      <div class="p"></div>
+      <div class="p"></div>
+      <div class="p"></div>
+      <div class="z"></div>
+    </div>
+    <div id="pdiv">
+      <div class="h">
+      <div class="pp"></div>
+      <div class="pp"></div>
+      <div class="pp"></div>        
+      </div>
+      <div class="m">
+      <div class="pp"></div>
+      <div class="pp"></div>
+      <div class="pp"></div> 
+      </div>
+      <div class="f">
+      <div class="pp"></div>
+      <div class="pp"></div>
+      <div class="pp"></div> 
+      </div>
+    </section>
+  </main>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

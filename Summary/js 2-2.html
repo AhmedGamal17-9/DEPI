@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/Css/js 2.css">
+  <title>check price</title>
+</head>
+<body>
+  <div id="contain">
+<form action="">
+    <label for="nat_lang">from</label>
+    <input type="text" name="Native Language" id="nat_lang" value="ar"><br><br><br>
+
+
+    <label for="trans_lang">to</label>
+    <input type="text" name="Translated Language" id="trans_lang" value="en"><br><br><br>
+
+
+    <label for="number">word</label>
+    <input type="number" name="number of words" id="number" value="120"><br><br><br>
+
+  </form>
+  <button id="get" onclick="getprice()" >get price</button>
+
+  <h4 id="result" >the price is : 0</h4>
+
+  </div>
+  
+  <button id="dark" onclick="darkmode()">Dark Mode</button>
+  <button id="light" onclick="lightmode()">Light Mode</button>
+  <button id="change" onclick="changemode()">change Mode</button>
+  
+  <script src="assets/JS/js 2-2.js"></script>
+</body>
+</html>

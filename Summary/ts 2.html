@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>TS 2</title>
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <section>
+      <pre class="prew">
+TypeScript : نفس أكواد الجافاسكربت
+
+<pre>
+let variable-name : datatype = value;
+var variable-name : datatype = value;
+const variable-name : datatype = value;  
+
+</pre>
+datatypes: number - string - boolean - unknown - array - any - null - object - enum
+
+<pre>
+function functionName (parameters : datatype) : return-datatype {
+  // code
+  return value;
+}  
+</pre>
+function calling:<pre>functionName();</pre>
+      </pre>
+    </section>
+    <hr><!------------------------------------------------------------------------------------>
+    <section>
+      <pre>
+
+&lt;script src="assests/Ts/main.js"&gt;&lt;/script&gt;
+➡️npx tsc all-code/assests/Ts/main.ts
+<!------------------------------------------------------------------------------------>
+&lt;script src="assests/Js/main.js"&gt;&lt;/script&gt;
+npx tsc all-code/assests/Ts/main.ts --outDir all-code/assests/Js
+<hr><!------------------------------------------------------------------------------------>
+watch mode : automatically compile TypeScript files when they change.
+1-tsconfig.json
+     "module": "esnext",
+     "target": "es6",
+2-&lt;script type="module" src="assests/Ts/ts 2.js"&gt;&lt;/script&gt;
+3- npx tsc -w 
+      </pre>
+    <div id="output"></div>
+    </section>
+    <script type="module" src="assets/Ts/ts 2/ts-2.js"></script>
+      <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+  </body>
+</html>

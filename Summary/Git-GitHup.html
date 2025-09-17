@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>Git</title>
+</head>
+<body>
+    <section>
+      <h2>Git & GitHup</h2>
+      <pre class="prew">
+Git : 
+- Version Control System
+- Historical Backups
+- Trunk Based Development(Branches)
+- Team Based Development
+- Command Line
+- Work on Local Server
+Git-Hup :
+- Use All Git Features in cloud Server
+- Fork (A complete standalone copy of a project on GitHub (Repository) that you create in your account)
+- Project Tests
+      </pre>
+    </section>
+    <section>
+      <h2>GitHup</h2>
+      <pre class="prew">
+- change Name and Email in Config (Local server)
+<pre>
+git config --global user.name "&lt;firstname lastname&gt;"
+git config --global user.email "&lt;valid-email&gt;"
+</pre><hr>
+- Read Configs
+<pre>
+git config --list
+git config --global user.name
+git config --global user.email
+</pre><hr>
+- Documentation of git commands
+<pre>
+git 
+</pre><hr>
+- clear Bash window from text
+<pre>
+clear
+</pre><hr>
+Working Directory :
+- The folder on your computer where project files exist and where you make changes (add, edit, delete).
+● New files are not tracked until you (git add)them; changes to tracked files are automatically noticed by Git.
+
+Staging Area :
+- The middle step (a waiting room) where you put selected changes/files before committing.
+● Controlled using git add.
+● Helps you decide which modifications go into the next commit.
+
+Repository (Repo) :
+- The place where the code is stored with its full history (edits, revisions, commits, branches).
+- project + all versions and their history + the different branches that run in a parallel timeline
+● Local repository : on your pc.
+● Remote repository : on a server (e.g., GitHub, GitLab, Bitbucket) accessible over the internet.
+- create repo  
+<pre>
+git init "&lt;repo-name&gt;"
+</pre><hr>
+- open repo in master branche
+<pre>
+cd &lt;repo-name&gt;
+</pre><hr>
+- Display the files and folders in the current directory.
+<pre>
+ls
+</pre><hr>
+- Displays all files and folders, including hidden ones (.git), in the current directory.
+<pre>
+ls -a
+</pre><hr>
+- Displays the current state of the (repository/Staging Area/Directory) and what happened to the project files.
+- Red : Not On The Stage
+- Green : On The Stage
+<pre>
+git status
+</pre><hr>
+- create new file in repo
+<pre>
+touch &lt;file:(index.html)&gt;
+</pre><hr>
+- place file in the staging area (preparing the file to be included in the next commit)
+- can place many files in the same line
+- can place all modified files
+<pre>
+git add &lt;file&gt;
+git add &lt;file&gt; &lt;file&gt; &lt;file&gt;
+git add .
+</pre><hr>
+- It removes the file from the staging area, but without changing the modifications you made in the file.
+- Unadd file to current commit
+- The file is still tracked by Git(history).
+- can removes All files from the staging area
+<pre>
+git reset &lt;file&gt;
+git reset
+</pre><hr>
+- Removes the file from Git tracking (staging & history) but leaves it on your device(working directory)
+<pre>
+git rm --cached &lt;file&gt;
+</pre><hr>
+- commit
+- save a copy of current edits with a message explaining them
+- to can go back to them or share them later
+<pre>
+git commit -m "&lt;Explain the changes you made&gt;"
+</pre><hr>
+- commit history
+- It displays a log of all commits that have occurred in the repository.
+- It shows you details for each commit, such as:
+●The hash (a unique identifier for the commit).
+●The author's name.
+●The date the commit was made.
+●The message.
+<pre>
+git log
+git log --oneline
+git log --oneline --graph --all
+</pre><hr>
+- Branch  
+● a movable pointer to a commits
+● saves and records new commits so you can develop independently without changing other branches.
+● starts from an first commit
+● Ends in Head (last commit)
+● Creating a branch at Commit2 means it shares history with main up to Commit2, then each branch can evolve separately.
+● So new-branch is like a sub-branch from main, not a totally independent project..
+<pre>
+(main)
+Commit1 --&gt; Commit2 --&gt; Commit3
+              \
+(new-branch)   NewCommit
+</pre><hr>
+- To manage branches
+<pre>
+● View all branches
+                      git branch  <hr>
+● Create a new branch
+                      git branch &lt;branch-name&gt;  <hr>
+● Delete branch
+                      git branch -d &lt;branch-name&gt;  <hr>                      
+● Moving (HEAD) to the another branch
+                      git checkout &lt;branch-name&gt;
+                      git switch &lt;branch-name&gt;
+</pre><hr>
+1 - moves you back to the project's state at that commit(old commit).
+2- You are in “detached HEAD”, so new commits won’t saved or belong to any branch.
+3- To keep those commits, you must create a new branch, so your new commits don't get lost.
+<pre>
+git checkout &lt;hash&gt;
+
+(main) 
+ Commit1 --&gt; Commit2 --&gt; Commit3
+
+(Detached HEAD)
+              \
+               Commit2
+</pre><hr>
+- Create a new branch and move to it (اختصار)
+<pre>
+git checkout -b &lt;branch-name&gt;
+</pre><hr>
+- Display the remote repositories that the local repository is connected to.
+- fetch (when you git pull)
+- push (when you git push)
+<pre>
+git remote -v
+</pre><hr>
+- Links your local repo to a new one on GitHub.
+- The common name for remote is (origin)
+<pre>
+git remote add &lt;remote-repo-name&gt; &lt;Link Git-Hup Repo&gt;
+</pre><hr>
+- Pushes your code from the local Pushes your code from the local branch to the remote on GitHub.
+<pre>
+git push -u &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
+</pre><hr>
+    </section>
+    <section>
+      <h2>GitHup</h2>
+      <pre class="prew">
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+- 
+<pre>
+
+</pre><hr>
+      </pre>      
+    </section>
+</body>
+</html>

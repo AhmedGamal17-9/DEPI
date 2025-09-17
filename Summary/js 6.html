@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>js 6</title>
+</head>
+<body>
+ <div id="header"></div>
+    <p id="demo"></p>
+  <pre class="prew">
+<h2>Callback Function :</h2>
+- function passed as an argument to another function, intended to be executed at a later time
+- parameter : variable in the declaration of function
+- argument : variable in the call of function
+- If we want to use a function as an argument,
+we can either pass it directly with () or 
+store it in a variable and then pass that variable when calling the function.
+- 
+<h2>asynchronous :</h2>
+-JavaScript doesn't wait for a long-running operation, 
+it starts it and completes the rest of the code, 
+and when the operation is finished,
+it returns to executing the associated code (using callback, promises, or async/await).
+
+- setInterval(function,time in milliseconds) : 
+   1-Bilt-in function execute another function repeatedly every certain period of time.
+   <pre>
+    var x = setInterval(y,1000);
+    function y () {
+      // code }
+    --------------------------------
+    var x = setInterval(y(){},1000);
+   </pre>
+   2- clearInterval(variable name) : stop the setInterval functio.
+
+-- setTimeout(function,time in milliseconds) :
+    1- Bilt-in function execute another function after certain period of time.
+   <pre>
+    var x = setTimeout(y,1000);
+    function y () {
+      // code }
+    --------------------------------
+    var x = setTimeout(y(){},1000);
+   </pre>
+<h2>Promise</h2>
+    1- object that represents asynchronous operation, and its resulting value.
+    2- has 3 cases : pending---fulfilled or success---rejected or failure
+    3- have function inside it that take 2 parameters (resolve, reject)
+    4- resolve() : function parameter in .then() 
+    5- use .then() method to handle success case
+    6- reject()  : function parameter in .catch() 
+    7- use .catch() method to handle failur case
+    8- can chain multiple .then() and .catch() methods to run operations in sequence and handle errors if they occur.
+    <pre>
+      let myPromise = new Promise(function(resolve, reject) {
+        // asynchronous operation
+        resolve();
+        reject();
+    })
+    .then()
+    .catch();      
+    </pre>
+<h2>async + await</h2>
+1- async :
+  - Makes any function automatic returns Promise
+  - automatic define if it is fulfilled or rejected
+
+2-await :
+  - can only be used inside an async function
+  - makes your code look and behave like synchronous code
+  - makes JavaScript pauses execution until the Promise is resolved (or rejected), before running the next line
+  </pre>
+  <pre class="prew">   
+</pre>
+<pre class="prew">
+ 1- new Data() : create a new date object with date and time -- empty, current date and time , or specific date and time
+ 2- .get time() : method that returns the number of milliseconds since January 1, 1970
+ 3- Math.floor() : round a number DOWN to the nearest integer{ex: 4.7 => 4}
+4- Web APIs : Application Programming Interface
+  - enable communication between client (browser) and server over HTTP
+  -Examples of endpoints:
+    * https://jsonplaceholder.typicode.com/posts
+    * https://api.github.com/users/octocat
+    * https://reqres.in/api/users
+    * https://dog.ceo/api/breeds/image/random
+ 5- fetch("URL") :
+  - return promise
+  - Used to make HTTP requests and handle responses asynchronously.
+  - The response object contains information about the HTTP response, not the actual data.
+  - response.ok : property that returns true if the HTTP response status code is in the range 200-299 (successful response), otherwise false
+  - To access the data, you need to use response.json() to parse the JSON body(JSON text).
+  - response.json() : converts JSON text from the response into a JavaScript object
+  - It is a tool in JavaScript that allows you to connect to the API.
+  -
+  <pre>
+  fetch("https://example.com")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+  </pre>
+</pre>
+<ul id="ul"></ul>
+<button id="btn">click</button>
+
+  <script src="assets/JS/js 6.js"></script>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

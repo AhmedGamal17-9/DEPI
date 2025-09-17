@@ -1,0 +1,137 @@
+عايزك تعمل صفحة ويب انجليزي حقيقية (موجود جواها حاجات ممكن تلاقيها في صفح الويب) 
+شكلها حلو و منسق (بمعني مفيش حاجات كتير في نفس السطر)
+ بدون جافاسكربت
+ و درجة صعوبة كتابة اكواد و تنسيق الصفحة متوسط و استخدم فيها ال css دي فقط :
+
+
+عايز كمان صفحة مختلفة تمامًا عن أي صفحة قبل كده، بحيث الفكرة جديدة تمامًا و خلي درجة صعوبة كتابة اكواد و تنسيق الصفحة أعلي : فوق المتوسط 
+و التزم بالقواعد الي كاتبها فوق
+
+
+
+
+
+
+
+<!-- العناوين -->
+<h1> <h2> <h3> <h4> <h5> <h6>
+<!-- أقسام -->
+<section> <div> <span>
+<!-- عناصر دلالية Semantic -->
+<header> <main> <footer> <nav> <aside> <article>
+<!-- نصوص -->
+<b> <strong> <em> <i> <u> <ins> <pre> <sup> <sub> <del> <mark> <label>
+<p> <br> <hr>
+<!-- روابط -->
+<a> <link>
+<!-- جداول -->
+<table> <tr> <th> <td>
+<!-- قوائم -->
+<ul> <ol> <li> <dl> <dt> <dd>
+<!-- وسائط -->
+<img> <audio> <video> <source> <iframe> <canvas> <svg>
+<!-- نماذج -->
+<form> <input> <textarea> <select> <option> <optgroup> <datalist>
+<!-- تعليقات -->
+<!-- comment -->
+<!--HTML Attributes -->
+href="" 
+target=""
+rel=""
+src=""
+alt=""
+title=""
+id=""
+for=""
+type=""
+name=""
+value=""
+colspan=""
+rowspan=""
+poster=""
+width=""
+height=""
+controls
+autoplay
+loop
+muted
+preload=""
+action=""
+method=""
+enctype=""
+novalidate
+placeholder=""
+maxlength=""
+minlength=""
+step=""
+required
+pattern=""
+autofocus
+autocomplete=""
+list=""
+readonly
+disabled
+multiple
+size
+selected
+label=""
+<!--CSS Properties-->
+/* Box Model */
+width
+height
+padding
+border
+margin
+border-radius
+/* Text & Font */
+color
+background-color
+line-height
+letter-spacing
+word-spacing
+word-wrap (أو overflow-wrap)
+word-break
+font-family
+font-size
+font-weight
+font-style
+text-align
+text-transform
+text-indent
+text-shadow
+text-decoration
+/* Display */
+display
+flex
+grid
+/* Flexbox */
+align-items
+justify-content
+/* Background */
+background-color
+background-image
+background-repeat
+background-position
+background-size
+/* Others */
+opacity
+position
+top
+right
+bottom
+left
+z-index
+/* Grid */
+grid-template-columns
+grid-template-rows
+grid-column-gap
+/* Selectors */
+html-element
+#id
+.class
+combinator selectors ( > + ~ )
+::pseudo-element (::first-line, ::first-letter, ::before, ::after)
+:pseudo-class (:hover, :active, :focus, :link, :visited, :first-child, :last-child, :nth-child())
+------------------------------------------------------------------------------------
+
+

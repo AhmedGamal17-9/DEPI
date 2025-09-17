@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+.word-break_normal {
+  width: 150px;
+  border: 2px solid blue;
+  word-break: normal;}
+.word-break_break-all {
+  width: 150px;
+  border: 2px solid red;
+  word-break: break-all;}
+.word-break_keep-all {
+  width: 150px;
+  border: 2px solid green;
+  word-break: keep-all; }
+.word-wrap_normal{
+  width: 150px;
+  border: 2px solid blue;
+  word-wrap:normal;}
+.word-wrap_break-word{
+  width: 150px;
+  border: 2px solid blue;
+  word-wrap:break-word;}
+</style>
+<body>
+  <h2>word-wrap: normal;</h2>
+  <p class="word-wrap_normal">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa This is a long text that will break only at spaces.
+  </p>
+  <p class="word-wrap_normal">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa *aaaaaaa *aaaaaaaa This is a long text that will break only at spaces.
+  </p><br>
+  
+  <h2>word-wrap: break-word;</h2>
+  <p class="word-wrap_break-word">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa This is a long text that will break only at spaces.
+  </p>
+  <p class="word-wrap_break-word">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa *aaaaaaa *aaaaaaaa This is a long text that will break only at spaces.
+  </p> 
+
+<br><br><hr><br><br>
+  
+<h2>word-break: normal;</h2>
+  <p class="word-break_normal">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa This is a long text that will break only at spaces.
+  </p>
+  <p class="word-break_normal">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa *aaaaaaa *aaaaaaaa This is a long text that will break only at spaces.
+  </p><br>
+  
+  <h2>word-break: break-all;</h2>
+  <p class="word-break_break-all">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa This is a long text that will break only at spaces.
+  </p>
+  <p class="word-break_break-all">
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa *aaaaaaa *aaaaaaaa This is a long text that will break only at spaces.
+  </p><br>
+
+  <h2>word-break-keep-all;</h2>
+  <p class="word-break_keep-all">
+    这是一个非常非常非常非常非常非常
+  </p>
+    <p class="word-break_keep-all">
+    这是一个非常非,常非常非常非常非常非常   非常非常非常常非常非常非
+  </p>
+  <p class="word-break_keep-all">
+    This,isaveryverylongwordwithoutspaces.but,it.hascommas.and.periods
+  </p>
+
+</body>
+</html>

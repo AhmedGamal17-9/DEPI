@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+
+<header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#articles">Articles</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/" target="_blank" rel="noopener">My GitHub (Absolute)</a>
+    <a href="about.html">About Page (Relative)</a>
+  </nav>
+
+  <div id="home">
+    <h1>Comprehensive Example of Required Tags</h1>
+    <p>
+      This example uses <strong>semantic</strong>, <em>typographic</em>, and <u>formatting</u> elements.
+      Recently <ins>added</ins> this line, and <del>removed</del> an old phrase.
+      Text can be highlighted using <mark>highlight</mark>.
+    </p>
+    <p>
+      Difference between <b>bold (visual)</b> and <strong>strong (meaning)</strong> —
+      and between <i>italic (visual)</i> and <em>emphasis (meaning)</em>.
+    </p>
+    <p>
+      HTML Entities: &amp; = &amp;amp; , &lt; , &gt; , &quot; , &copy;
+      and non-breaking space&nbsp;between&nbsp;words using &nbsp;.
+    </p>
+  </div>
+</header>
+
+<main>
+  <section aria-label="typography">
+    <h2>Typography</h2>
+    <h1>Heading H1</h1>
+    <h2>Heading H2</h2>
+    <h3>Heading H3</h3>
+    <h4>Heading H4</h4>
+    <h5>Heading H5</h5>
+    <h6>Heading H6</h6>
+  </section>
+
+  <section aria-label="math">
+    <h2>Simple Math Examples</h2>
+    <p>log x<sup>2</sup> + H<sub>2</sub>O = example of <span>sup</span> and <span>sub</span>.</p>
+  </section>
+
+  <section aria-label="lists">
+    <h2>Lists</h2>
+    <div>
+      <h3>Unordered List (ul)</h3>
+      <ul>
+        <li><span>First item</span></li>
+        <li><span>Second item</span></li>
+        <li><span>Third item</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Ordered List (ol)</h3>
+      <ol>
+        <li><span>Step 1</span></li>
+        <li><span>Step 2</span></li>
+        <li><span>Step 3</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-label="code-block">
+    <h2>Code Block in &lt;pre&gt;</h2>
+    <pre>
+// JavaScript example (text only in &lt;pre&gt;)
+const message = "Hello &amp; Welcome";
+console.log(message);
+    </pre>
+    <p>The above line is inside <code>pre</code> to preserve formatting and spacing.</p>
+  </section>
+
+  <article id="articles">
+    <h2>Article: What is Independent Content?</h2>
+    <p>
+      The <strong>article</strong> element represents standalone content readable outside the site context,
+      such as a news item or blog post. This is a simple example.
+    </p>
+  </article>
+
+  <aside>
+    <h3>Additional Info</h3>
+    <p>
+      This <em>aside</em> shows secondary content like a tip or side note related to main content.
+    </p>
+  </aside>
+
+  <section id="about" aria-label="form">
+    <h2>Mini Form Using &lt;label&gt; and &lt;input&gt; Only</h2>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" type="text" placeholder="Enter your name">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" placeholder="name@example.com">
+    </div>
+    <div>
+      <label for="agree">I agree to the terms</label>
+      <input id="agree" type="checkbox">
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <p>
+    &copy; <span>2025</span> Educational Example — Created using required elements only.
+  </p>
+  <p>
+    Contact us via <a href="#home">top of the page</a> or navigation links.
+  </p>
+</footer>

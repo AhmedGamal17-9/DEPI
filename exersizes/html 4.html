@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sample Media & Form Demo (No CSS / No JS)</title>
+      <style>
+    *{margin-bottom: 10px;}
+  </style>
+  <!-- No CSS, no JavaScript as requested -->
+</head>
+<body>
+  <!-- 4) Audio example demonstrating controls, autoplay, loop, muted, preload and multiple sources -->
+  <section>
+    <p>Audio example (controls, autoplay, loop, muted — preload="metadata"):</p>
+    <audio controls autoplay loop muted preload="metadata">
+      <!-- primary source (MP3) -->
+      <source src="https://www.w3.org/2010/05/soundfiles/example.mp3" type="audio/mpeg">
+      <!-- fallback source (Ogg) -->
+      <source src="https://www.w3.org/2010/05/soundfiles/example.ogg" type="audio/ogg">
+      Your browser does not support audio playback.
+    </audio>
+    <p>
+      Notes: <strong>controls</strong> shows player buttons. <strong>autoplay</strong> attempts to start on load (often requires <em>muted</em> for autoplay to work). <strong>loop</strong> repeats. <strong>preload</strong> set to "metadata".
+    </p>
+  </section>
+
+  <!-- 5) Video example demonstrating controls, poster, preload, width/height and multiple sources -->
+  <section>
+    <p>Video example (controls, poster, preload="metadata"):</p>
+    <video controls poster="https://via.placeholder.com/640x360.png?text=Video+Poster" width="640" height="360" preload="metadata">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+      Your browser does not support video playback.
+    </video>
+    <p>
+      Notes: <strong>poster</strong> shows an image before playback. <strong>width</strong> and <strong>height</strong> control displayed size.
+    </p>
+  </section>
+
+  <!-- 7) Forms section: shows both label-for and label-wrapping-input styles -->
+  <section>
+    <h2>Contact & Settings Form</h2>
+
+    <!-- FORM using label[for] + input id -->
+    <form action="/submit-demo" method="post" enctype="application/x-www-form-urlencoded" novalidate>
+      <!-- Text inputs -->
+      <div>
+        <label for="username">Username (required)</label><br>
+        <input type="text" id="username" name="username" placeholder="e.g. AhmedG" maxlength="30" required autocomplete="on" value="">
+      </div>
+
+      <div>
+        <label for="email">Email address</label><br>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div>
+        <label for="pwd">Password</label><br>
+        <input type="password" id="pwd" name="password" minlength="8" required>
+      </div>
+
+      <!-- Number / range with min/max/step -->
+      <div>
+        <label for="age">Age (number) — min 16, max 100</label><br>
+        <input type="number" id="age" name="age" min="16" max="100" value="20" step="1">
+      </div>
+
+      <div>
+        <label for="volume">Volume (range) 0–100</label><br>
+        <input type="range" id="volume" name="volume" min="0" max="100" step="1" value="50">
+      </div>
+
+      <!-- URL and tel -->
+      <div>
+        <label for="website">Website (URL)</label><br>
+        <input type="url" id="website" name="website" placeholder="https://example.com">
+      </div>
+
+      <div>
+        <label for="phone">Phone (tel)</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="+20-10-XXXX-XXXX">
+      </div>
+
+      <!-- Date / time / datetime-local -->
+      <div>
+        <label for="meeting">Meeting (date)</label><br>
+        <input type="date" id="meeting" name="meeting" value="">
+      </div>
+
+      <div>
+        <label for="appt">Appointment (datetime-local)</label><br>
+        <input type="datetime-local" id="appt" name="appt">
+      </div>
+
+      <!-- Color and file -->
+      <div>
+        <label for="favcolor">Favorite color</label><br>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+      </div>
+
+      <div>
+        <label for="resume">Upload resume (file)</label><br>
+        <input type="file" id="resume" name="resume">
+      </div>
+
+      <!-- Checkbox and radio (same name handling) -->
+      <fieldset>
+        <legend>Interests</legend>
+
+        <label for="int-dev">
+          <input type="checkbox" id="int-dev" name="interests" value="development"> Development
+        </label><br>
+
+        <label for="int-design">
+          <input type="checkbox" id="int-design" name="interests" value="design"> Design
+        </label><br>
+
+        <label for="int-ml">
+          <input type="checkbox" id="int-ml" name="interests" value="ml"> Machine Learning
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Subscription level</legend>
+        <label>
+          <input type="radio" name="plan" value="free" checked> Free
+        </label><br>
+        <label>
+          <input type="radio" name="plan" value="pro"> Pro
+        </label><br>
+        <label>
+          <input type="radio" name="plan" value="enterprise"> Enterprise
+        </label>
+      </fieldset>
+
+      <!-- Hidden input -->
+      <input type="hidden" name="site_version" value="demo_v1">
+
+      <!-- Readonly and disabled -->
+      <div>
+        <label for="ref">Referral code (readonly)</label><br>
+        <input type="text" id="ref" name="ref" value="REF-2025-09" readonly>
+      </div>
+
+      <div>
+        <label for="disabledNote">Disabled note (won't be submitted)</label><br>
+        <input type="text" id="disabledNote" name="disabledNote" value="Not editable" disabled>
+      </div>
+
+      <!-- Pattern, maxlength and placeholder with autofocus -->
+      <div>
+        <label for="nickname">Nickname (pattern: letters only)</label><br>
+        <input type="text" id="nickname" name="nickname" pattern="[A-Za-z\s]+" maxlength="20" placeholder="Only letters" autofocus>
+      </div>
+
+      <!-- Inputs of type button, submit, reset, image -->
+      <div>
+        <input type="button" name="preview" value="Preview (client)">
+
+        <input type="submit" name="submit" value="Submit form">
+
+        <input type="reset" name="reset" value="Reset form">
+
+        <!-- image submit (clickable image that submits) -->
+        <input type="image" src="https://via.placeholder.com/100x30.png?text=Send" alt="Send form image button" width="100" height="30">
+      </div>
+    </form>
+
+    <hr><hr>
+    <h3>new form</h3>
+
+    <!-- FORM using label wrapping the input (alternative inline style) -->
+    <form action="/search" method="get">
+      <label>
+        Search
+        <input type="search" name="q" placeholder="Search site..." value="">
+      </label>
+
+      <!-- Select + optgroup -->
+      <div>
+        <label for="category">Category</label><br>
+        <select id="category" name="category" size="1">
+          <option selected disabled value="">Choose category</option>
+          <optgroup label="Development">
+            <option value="frontend">Frontend</option>
+            <option value="backend">Backend</option>
+          </optgroup>
+          <optgroup label="Data">
+            <option value="ml">Machine Learning</option>
+            <option value="db">Databases</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Select multiple demonstration -->
+      <div>
+        <label for="skills">Pick multiple skills (Ctrl/Shift)</label><br>
+        <select id="skills" name="skills" multiple size="4">
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="js">JavaScript</option>
+          <option value="py">Python</option>
+        </select>
+      </div>
+
+      <!-- Datalist example -->
+      <div>
+        <label for="city">City (choose or write)</label><br>
+        <input type="text" id="city" name="city" list="cities" placeholder="Type or choose">
+        <datalist id="cities">
+          <option value="Cairo">
+          <option value="Alexandria">
+          <option value="Giza">
+        </datalist>
+      </div>
+
+      <!-- Textarea -->
+      <div>
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" cols="80" rows="6" placeholder="Write your message here..."></textarea>
+      </div>
+
+      <div>
+        <input type="submit" value="Search / Send">
+      </div>
+    </form>
+  </section>
+
+  <!-- 8) Small informational text about HTML APIs (plain text on page using textarea as multi-line content element) -->
+  <section>
+    <h2>HTML APIs (short notes)</h2>
+    <textarea cols="90" rows="6" readonly>
+Geolocation API: navigator.geolocation gives access to user location (with permission).
+
+Drag and Drop API: supports dragging elements and dropping targets.
+
+Web Storage API: localStorage (persistent), sessionStorage (per-tab).
+
+WebSocket API: persistent two-way socket connection.
+
+Web Workers: run scripts in background threads (no UI blocking).
+    </textarea>
+  </section>
+
+</body>
+</html>

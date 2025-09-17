@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>js 2-1</title>
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <pre class="prew">
+element.classList
+
+- خاصية موجودة لكل عنصر
+- تديك إمكانية التعامل مع الكلاسات (CSS classes)
+- هي قائمة (list) بالكلاسات الموجودة على العنصر
+- تقدر تضيف، تشيل، تتبدل أو تتحقق من الكلاسات بسهولة
+-------------------------------------------------------
+1- element.classList.remove(''); تشيل كلاس من العنصر
+2- element.classList.add('');  تضيف كلاس للعنصر
+3- element.classList.contains(""); true/false تتحقق إذا كان الكلاس موجود على العنصر
+4- element.classList.replace("old","new");  تبدل كلاس بكلاس آخر
+5- element.classList.toggle("");
+- معناها"تبديل" في جافاسكربت 
+- لتغيير حالة عنصر بين حالتين
+- لو العنصر يحتوي على الكلاس، سيتم إزالته
+-لو العنصر لا يحتوي على الكلاس، سيتم إضافته
+--------------------------------------------------------
+
+    </pre>
+  </main>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

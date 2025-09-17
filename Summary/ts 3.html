@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>TS 3</title>
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <section>
+      <pre class="prew">
+variables, datatypes, casting, operators, conditions, loops, functions, input/output, array, oop
+
+OOP
+  Modularity
+  Reusability
+  Don't Repeat Your self(DRY)
+  Modeling Real-world Objects
+  scalability
+  Data Protection
+
+class => Template defines the attributes and methods that the objects created from, it will have.
+1-Attributes / Properties / Fields
+2-Methods / Functions
+3-Constructor => function works immediately when creating object
+<pre>
+className {
+  attribute1: dataType;
+  attribute2: dataType;
+
+  constructor(parameter1: dataType, parameter2: dataType) {
+    this.attribute1 = parameter1;
+    this.attribute2 = parameter2;
+  }
+
+  method1(): returnType {
+    // method logic
+  }
+}  
+</pre>
+
+object => an instance of a class. It is a real entity created based on the class blueprint,
+          with actual values assigned to its attributes and the ability to perform its methods.
+<pre>let objectName = new className(parameter1Value, parameter2Value);</pre>
+
+access modifiers
+  1- public => can access the variable from anywhere
+  2- private => can access the variable from inside the class only
+  3- readonly => can read the variable from anywhere but cann't modify it from outside the class
+  4- protected => can access the variable from inside the class and its subclasses only
+</pre>
+    </section>
+    <hr><!------------------------------------------------------------------------------------>
+    <section>
+
+    </section>
+    <script type="module" src="assets/Ts/ts 3/ts 3.js"></script>
+      <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+  </body>
+</html>

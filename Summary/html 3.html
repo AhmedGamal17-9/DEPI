@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <h1>Table</h1>
+    <pre>
+بنرص الجدول افقي زي الحيطة
+&lt;table&gt; &lt;/table&gt;
+&lt;tr&gt;  &lt;tr&gt; : Row
+&lt;th&gt; &lt;/th&gt; : head
+&lt;td&gt; &lt;/td&gt; : data
+<hr>
+colspan="" 
+يظهر دمج عمودين
+كود : بيضيف مربعات من الصفوف
+
+rowspan="" :
+يظهر دمج صفين
+كود : بيضيف مربعات من الأعمدة
+----------------------------------------
+border-spacing أو border-collapse المسافة بين الخلايا بعضها البعض (الفراغ الخارجي بين الخلايا)
+    </pre>
+ <section>
+    <div>
+      <table>
+    <tr>
+      <td>a</td>
+      <td>a</td>
+      <td colspan="3">colspan="3"</td>
+    </tr>
+
+    <tr>
+      <td colspan="2">colspan="2"</td>
+      <td>a</td>
+      <td>a</td>
+      <td rowspan="2">rowspan="2"</td>
+    </tr>
+
+    <tr>
+     <td>a</td>
+     <td>a</td> 
+     <td>a</td>
+     <td>a</td>
+    </tr>
+
+    <tr>
+      <td>a</td>
+      <td>a</td>
+      <td>a</td>
+      <td>a</td>
+      <td>a</td>
+    </tr>
+
+    <tr>
+      <td rowspan="2">rowspan="2"</td>
+      <td rowspan="2" colspan="3">rowspan="2" colspan="3"</td>
+      <td>a</td>
+    </tr>
+
+    <tr>
+     <td>a</td>
+    </tr>
+
+    <tr>
+      <td>a</td>
+      <td>a</td>
+      <td>a</td>
+      <td>a</td>
+      <td>a</td>
+    </tr>
+  </table>
+
+    </div>
+ </section>
+  <h1>Lists</h1>
+ <section>
+    <pre>
+Unordered List
+&lt;ul&gt;
+  &lt;li&gt; item &lt;/li&gt;
+  &lt;li&gt; &lt;/li&gt;
+  &lt;li&gt; &lt;/li&gt;
+&lt;/ul&gt;   
+    </pre>
+    <pre>
+ordered List
+&lt;ol&gt;
+  &lt;li&gt; item &lt;/li&gt;
+  &lt;li&gt; &lt;/li&gt;
+  &lt;li&gt; &lt;/li&gt;
+&lt;/ol&gt;   
+    </pre>
+     <pre>
+Description List
+&lt;dl&gt;
+  &lt;dt&gt; Definition Term المصطلح &lt;/dt&gt; &lt;dd&gt; Definition Description الوصف &lt;/dd&gt;
+  &lt;dt&gt; &lt;/dt&gt; &lt;dd&gt; &lt;/dd&gt; 
+  &lt;dt&gt; &lt;/dt&gt; &lt;dd&gt; &lt;/dd&gt;
+&lt;/dl&gt;   
+    </pre>
+    <pre>
+HTML properties:
+&lt;ol type="" start=""&gt; &lt;/ol&gt;
+    </pre>
+ </section>
+  </main>
+  <footer>
+      <h3>By Ahmed Gamal</h3>
+  </footer>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

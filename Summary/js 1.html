@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/css 2.css">
+  <title>JS 1</title>
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <section>
+<h1 style="font-size:100px">js1.js</h1>
+
+<p id="pid">old text1</p>
+<div id="divid2">
+old text 2
+<h1>h1</h1>  
+<h2>h2</h2>
+<h3>h3</h3> 
+</div>
+
+
+<div id="divid3">
+old text 3
+<h1>h11</h1>  
+<h2>h22</h2>
+<h3>h33</h3>
+</div>
+<form action="">
+<input type="number" id="idinput1" value="20" name="10"><br>
+<input type="number" id="idinput2" value="20" name="10"><br>
+<input type="submit">
+</form>
+      <hr><!------------------------------------------------------------------------------------>
+    </section>
+  </main>
+<script src="assets/JS/js 1.js"></script>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
+
+ 
+

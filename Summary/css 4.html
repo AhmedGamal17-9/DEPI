@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/css 4.css">
+  <title>Summary of css</title>
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <section>
+      <pre>
+media query : web page responsive
+
+@media(Media Features){
+اسم العنصر {التنسيق الجديد}
+}
+
+
+Media Type: نوع الوسط اللي بيتعرض فيه المحتوى
+all (default) → الكل 
+screen → خاص بالشاشات (كمبيوتر، لابتوب، موبايل، تابلت)
+print → بيتطبق فقط لما المستخدم يطبع الصفحة
+speech → للمستعرضات اللي تقرأ الصفحة بصوت
+
+only :
+- زمان قبل CSS3
+- في متصفحات قديمة جدًا ماكنتش بتفهم الميديا كويري
+- فكانوا ساعات يطبقوا القاعدة غلط أو يتجاهلوها بطريقة مش مظبوطة
+- عشان كده اخترعوا كلمة only
+- المتصفح الحديث يفهمها ويتجاهلها (يعاملها كأنها مش موجودة)
+- المتصفح القديم مايعرفش الكلمة دي يرمي الميديا كويري كله ويتجاهله
+
+Media Features : الشروط
+1- max-width/min-width/min-height/max-height
+2- px <= width <= px زي الرياضة
+
+ربط الشروط :
+and :  لازم كل الشروط تتحقق
+, : طبق لو أي واحد فيهم اتحقق
+not : يتطبق على أي حاجة غير المتحدد
+-----------------------
+transition: [property] [duration] [timing-function] [delay];
+تخلي التغييرات على العنصر تحصل تدريجي وبسلاسة
+بيجي بعدها التغيير الي هيحصل
+
+❁property → property-name, none , all
+
+❁duration → المدة(0.5s)
+
+<table cellspacing>
+  <tr>
+    <th>timing-function → السرعة</th>
+    <th>start</th>
+    <th>middle</th>
+    <th>end</th>
+  </tr>
+  <tr>
+    <td>ease-in : in → البداية بطيئة</td>
+    <td>slow</td>
+    <td colspan="2">fast</td>
+  </tr>
+  <tr>
+    <td>ease-out : out → النهاية بطيئة</td>
+    <td>fast</td>
+    <td colspan="2">slow</td>
+  </tr>
+  <tr>
+    <td>ease (default) : سلاسة و إحساس طبيعي</td>
+    <td>slow</td>
+    <td>fast</td>
+    <td>slow</td>
+  </tr>
+  <tr>
+    <td>ease-in-out : انسيابي </td>
+    <td>slower</td>
+    <td>faster</td>
+    <td>slower</td>
+  </tr>
+  <tr>
+    <td>linear</td>
+    <td>fixed</td>
+    <td>fixed</td>
+    <td>fixed</td>
+  </tr>
+
+
+</table>
+delay → تأخير قبل البداية 
+
+transition: width 0.5s ease, background 0.2s;
+-----------------------
+transform: ; تحريك العناصر
+
+translate(x, y); تحريك
+px
+
+scale(x, y); تكبير و تصغير
+numbers and fraction
+
+rotate(angle); تدوير
+deg
+
+skew(x-angle, y-angle); الإمالة(امالة االحواف دون تدوير او تحريك)
+deg
+-----------------------
+@keyframes name {
+  from { /* الخصائص في البداية */ }
+  to { /* الخصائص في النهاية */ }
+               أو
+  0%{}    //from
+  %{}     // في النص
+  100%{}  //to
+}
+
+
+animation: [name] [duration] [timing-function] [delay] [numper of iteration] [direction] [fill-mode];
+
+❁name → اسم الحركة
+
+❁duration → المدة
+
+timing-function → السرعة        
+
+delay → تأخير قبل البداية       
+
+numper of iteration → عدد مرات التكرار (number or infinite) 
+
+direction → اتجاه تشغيل الأنيميشن
+  normal : (حركته فقط)يمشي من البداية الي النهاية
+  alternate : يروح من البداية للنهاية، وبعدين يرجع بالعكس
+  reverse : يمشي من النهاية الي البداية
+
+  fill-mode → حالة العنصر قبل وبعد الأنيميشن
+  none : بدون حالة
+  backwards: قبل ما يبدأ : بياخد شكل العنصر في  خلال وقت الـديلاي 
+  forwards : بعد ما يخلص :العنصر يقف مكانه الجديد، مايرجعش
+  both :  يطبق forwards و backwards مع بعض
+-----------------------
+overflow:; بتتحكم إزاي المحتوى اللي جوا العنصر يتصرف لو زاد عن المساحة المحددة ليه
+
+visible (default) → المحتوى بيبان حتى لو طالع برا الصندوق
+hidden → المحتوى الزيادة يتقص وما يبانش
+scroll → يظهر سكرول بار دايمًا حتى لو مش محتاج
+auto → يظهر سكرول بار بس لو المحتوى زاد فعلًا
+-----------------------
+float: ; ✖️
+1- بيخلي العنصر "يطير" ناحية اليمين أو الشمال
+2- النصوص أو العناصر اللي بعده بتلتف حواليه (كأنها بتملأ الفراغ جنبه)
+3- استخدام الفلوت كان زمان عشان نعمل (أعمدة وصفوف)
+      </pre>
+      <hr><!------------------------------------------------------------------------------------>
+    </section>
+    <div id="fd">
+      <p>responsive</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, enim aliquam temporibus labore deserunt ut iste quisquam vitae nisi tempore accusantium eos eveniet provident minima pariatur, id ipsum eligendi excepturi.</p>
+    </div>
+  </main>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

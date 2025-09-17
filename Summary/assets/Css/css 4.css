@@ -1,0 +1,25 @@
+#fd{
+  height:fit-content ;
+  background-color: red;
+  border: 5px solid blue;
+  max-width:1500px
+}
+@media(max-width:1200px){
+  #fd{
+  background-color:antiquewhite;
+  border: 5px dashed aliceblue;
+  }
+}
+@media(max-width:900px){
+  #fd{
+  background-color:cornflowerblue;
+  border: 5px groove aqua;
+  }
+}
+
+@media (max-width:800px){
+  #fd{
+  background-color:blueviolet;
+  border: 5px double azure;
+  }
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/js 3.css">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>js 3</title>
+  <style>
+#masks{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.mask1{
+mask-image: url(assests/images/mask.png);
+mask-repeat: no-repeat;
+mask-position:center ;
+mask-size: contain;
+}
+.mask2{
+mask-image: linear-gradient(black, transparent);
+}
+.mask3{
+overflow-y: scroll;
+background: url(assests/images/image.jpg) no-repeat;
+background-size:cover ;
+mask-image: linear-gradient(black, transparent);
+height:300px; width:450px ;
+
+padding: 5px;
+font-size: 20px;
+color: white;
+}
+  </style>
+</head>
+<body>
+ <div id="header"></div>
+  <section class="secpre"
+    <p> CSS Mask:</p>
+    <div id="masks">
+      <div class="mask1">
+        <img id="image of mask" src="assets/images/image.jpg">
+      </div>
+      <div class="mask2">
+        <img id="image of mask" src="assets/images/image.jpg">
+      </div>
+      <div class="mask3">
+        <p>The Cinque Terre is a coastal area within Liguria, in the northwest of Italy. It lies in the west of La Spezia Province, and comprises five villages: Monterosso al Mare, Vernazza, Corniglia, Manarola, and Riomaggiore.</p>
+        <p>The Cinque Terre is a coastal area within Liguria, in the northwest of Italy. It lies in the west of La Spezia Province, and comprises five villages: Monterosso al Mare, Vernazza, Corniglia, Manarola, and Riomaggiore.</p>
+      </div>
+    </div>
+
+    <img src="assets/images/mask css-1.png">
+    <img src="assets/images/mask css-2.png">
+    <p>mask-image: الصورة أو الشكل اللي هيحدد أجزاء العنصر اللي تظهر.</p>
+    <p>mask-repeat: تتكرر الخلفية</p>
+    <p>mask-position: مكان وضع الـ mask.</p>
+    <p>mask-size: حجم الـ mask.</p>
+  </section>
+  <pre class="prew">
+call function in website:
+-- in html tag 
+1- الفانكشن بأقواس
+2- لازم تكتبها بـ on (زي onclick, onchange)
+
+-- item.addEventListener("event",function); 
+1- الفانكشن بدون أقواس
+2- نفس الكلمة لكن من غير on
+
+click → كليك شمال مرة واحدة
+dblclick → كليك شمال مرتين
+contextmenu → كليك يمين على العنصر
+--------------------------
+mouseover → لما الماوس يدخل على العنصر	
+mouseout → لما الماوس يخرج من العنصر	
+--------------------------
+keyup → لما ترفع إصبعك عن زرار الكيبورد	
+keydown → لما تضغط زرار في الكيبورد	
+--------------------------
+load → لما الصفحة أو عنصر معين يخلص تحميل	
+submit → لما يتبعت فورم	
+--------------------------
+focus → (عليه تركيز)العنصر يتحدد سواء بالضغط عليه بالماوس أو بالانتقال إليه بالكيبورد
+blur → لما يفقد التركيز
+--------------------------
+change
+1- لما قيمة الـ input تتغير
+2-بعدين المستخدم يسيب العنصر
+3-يفقد الـ focus
+input →  لما المستخدم يكتب أو يغيّر في الـ input لحظيًا
+--------------------------
+drag → لما تسحب عنصر
+drop → لما تفلت عنصر في مكان
+dragove → لما عنصر يتسحب ويمر فوق منطقة Drop
+--------------------------
+touchstart → بداية لمسة على شاشة تاتش
+touchend → لما اللمسة تخلص
+touchmovev → لما تجرّ إيدك على الشاشة (Swipe/Drag باللمس)
+--------------------------
+resize → لما حجم نافذة المتصفح يتغير
+scroll → لما تسكرول في الصفحة أو عنصر معين
+<hr><!---------------------------------------------------------------------------------------->
+if (condition) { 
+
+}
+--------------------------
+if (condition) {
+
+}
+else { 
+
+}
+--------------------------
+if (condition){ 
+
+}else if {
+
+}
+else{
+
+}
+--------------------------
+assignment operator 
+
+= إسناد قيمة
+
+-= طرح القيمة وإسنادها	
+
++= جمع القيمة وإسنادها
+
+*= ضرب القيمة وإسنادها
+
+/= قسمة القيمة وإسنادها	
+
+%= باقي القسمة وإسنادها	
+let x = 5;
+x += 3; // x = x + 3  (تحديث القيمة)العملية + إسنادها
+console.log(x); // 8
+--------------------------
+arthematic operator 
+
++ , - , * , /
+
+** أس (قوة)
+
+% باقي القسمة	
+
+--------------------------
+comparison operator
+
+==  يساوي بالقيمة
+
+=== يساوي بالقيمة والنوع
+
+!=  لا يساوي بالقيمة
+
+!== لا يساوي بالقيمة والنوع
+
+> , >= , < , <=
+
+--------------------------
+Logical Operators 
+
+&&  AND
+
+||      OR
+
+!	Not
+--------------------------
+Increment / Decrement 
+
+++     زيادة بـ 1
+
+--     نقصان بـ 1	
+
+: الفرق بين
+
+x ++ : يرجع القيمة وبعدين يزودها
+
+++ x : يزود القيمة أولًا وبعدين يرجعها
+</pre>
+<script src="assests/JS/js3.js"></script>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

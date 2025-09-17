@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>TS 4</title>
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <section>
+      <pre class="prew">
+encapsulation (setter, getter)
+<hr>
+Non-access modifiers
+  1-static
+  2-readonly
+  3-abstract
+  4-override
+<hr>
+inheritance
+  1- child class inherits the properties and methods of parent class
+  2- Noramlly : we call child class 
+  <pre>
+class ParentClass {
+  Parent class properties and methods
+  constructor(Ppara1,Ppara2) {
+  }
+}
+class ChildClass extends ParentClass {
+  Child class properties and methods
+  let Cvaria:number;
+  constructor(Cpara1,Cpara2,Cpara3) {
+    super(Cargu1,Cargu2);
+    this.Cvaria=Cpara1;
+  }
+} 
+const object1 = new ChildClass();
+  </pre>
+  3- super() : 
+    - Calls the parent class constructor
+    - take arguments from child-class constructor as a parameters to  parent-class constructor
+  4- super.methodName() : Call specific method from parent class
+<hr>
+When calling HTML elements in TypeScript, you must use type assertions to specify the correct element type.
+For example:
+const div = document.getElementById("myDiv") as HTMLDivElement;
+<hr>
+access modifiers
+  1- public
+  2- private
+  3- readonly
+  4- protected => can access the variable from inside the class and its subclasses only
+<hr>
+polymorphism
+destructor
+</pre>
+    </section>
+    <hr><!------------------------------------------------------------------------------------>
+    <section>
+
+    </section>
+    <script type="module" src="assets/Ts/ts 4/ts 4.js"></script>
+      <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+  </body>
+</html>

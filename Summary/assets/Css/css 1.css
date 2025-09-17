@@ -1,0 +1,22 @@
+#p{
+  color: red;
+  background-color:white;
+  line-height: 50px; 
+  letter-spacing: 10px; 
+  word-spacing: 120px;  
+  word-wrap:break-word ;
+  word-break:break-all ; 
+  font-size: x-large;
+  font-family:Arial, sans-serif;
+  font-weight:bolder ;
+  font-style: italic; 
+  text-align: justify;
+  text-transform:capitalize ;
+  text-indent:50px ;
+  text-shadow:3px 5px 4px gray ; 
+}
+
+a{ 
+  text-decoration: none; }
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/nav.css">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>TS 1</title>
+</head>
+<body>
+ <div id="header"></div>
+  <main>
+    <section>
+      <pre>
+TypeScript:
+ 1-superset javascript based on oop
+ 2-add extra features like:
+    ❁ static typing : datatypes
+    ❁ Enumeration(enum) : kind of datatypes 
+    ❁ An error appears when compiling or writing code
+    ❁ interfaces
+  3-TypeScript compiled to JS
+  4-work on client side and server side
+  5-Designed by Microsoft
+  6-Anglur Freamwork work with it
+---------------------------------------------------------------------
+Application:
+  -gamming apps
+  -complex web sites and web apps
+  -desktop application
+---------------------------------------------------------------------
+Advanteges:
+  1-improve code quality (datatypes)
+  2-better developer tools
+  3-better scalability ( larger projects )
+  4-Freamworks (Anglur)
+  5-discovering bugs faster (datatypes)
+  6-supports libraries
+  7-OOP :  class , object
+----------------------------------------------------------------------------------------------------------------
+|      Aspect       |                          Compile                   |               Interpret              |
+| ----------------- | ---------------------------------------------------| ------------------------------------ |
+| Definition        | Translates entire code into                        | Executes code line by line directly  |
+|                   |  (machine code/low level language) before running  |                                      |
+| ----------------- | -------------------------------------------------- | ------------------------------------ |
+| Run Speed         | Faster at runtime (already compiled)               | Slower at runtime                    |
+| ----------------- | -------------------------------------------------- | ------------------------------------ |
+| Error Detection   | Catches errors before execution                    | Errors appear while running          |
+| ----------------- | -------------------------------------------------- | ------------------------------------ |
+| Use Case          | Large projects, production apps                    | Scripting, quick testing             |
+| ----------------- | -------------------------------------------------- | ------------------------------------ |
+| Examples          | C, C++, Java, TypeScript                           | JavaScript, Python, PHP              |
+-----------------------------------------------------------------------------------------------------------------
+      </pre>
+    </section>
+    <hr><!------------------------------------------------------------------------------------>
+    <section>
+      <pre>
+npm : Node Package Manager
+
+instaling typescript : => terminal of vs code :
+  1- npm install -g typescript : تنزل علي الجهاز
+  2- npm install --save-dev typescript : تنزل في المشروع فقط
+
+code run : npx tsc path/of/file
+
+.json = JavaScript Object Notation
+  - مش لغة برمجة، مجرد صيغة بيانات
+  - صيغة لتخزين وتبادل البيانات
+  - تبادل البيانات بين السيرفر والمتصفح (Web APIs).
+  - حفظ إعدادات المشاريع (package.json في Node.js).
+  - { key:value }
+
+npx tsc --init : بيحمل اعدادات لغة التايبسكربت
+      </pre>
+    </section>
+      <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

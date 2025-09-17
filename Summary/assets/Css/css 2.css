@@ -1,0 +1,61 @@
+.outside{
+  height: 30vh;
+  background-color: lightblue;
+  border-radius: 10px;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.inside{
+  height: 15vh;
+  width: 20%;
+  background-color: aquamarine;
+  border: 2px solid lightcoral;
+  border-radius: 10px;
+}
+#background-image{
+   height: 30vh;
+  background-image: url('/assests/images/logo.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+#position{
+  background-color:blanchedalmond;
+  height: 7vh;
+  position:sticky;
+  top: 50px;
+}
+
+#relative{
+  height: 30vh;
+  width: 100%;
+  background-color: lightblue;
+  border: 3px solid red;
+  border-radius: 10px;
+  position: relative;
+}
+#absolute{
+  height: 10vh;
+  width: 50px;
+  background-color: greenyellow;
+  border: 3px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.btn {
+  position: relative;
+  padding: 5px 5px;
+  font-size: 20px;
+}
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 12px;
+}

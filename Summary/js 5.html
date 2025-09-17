@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>js 5</title>
+</head>
+<body>
+ <div id="header"></div>
+  <section class="secpre">
+<h2>Array Methods :</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>push("")</td>
+      <td>Add element at the end of array</td>
+    </tr>
+    <tr>
+      <td>pop()</td>
+      <td>Delete the last item</td>
+    </tr>
+    <tr>
+      <td>unshift("")</td>
+      <td>Add element to the beginning of the array</td>
+    </tr>
+    <tr>
+      <td>shift()</td>
+      <td>Delete the first element</td>
+    </tr>
+    <tr>
+      <td>length</td>
+      <td>Number of array elements</td>
+    </tr>
+    <tr>
+      <td>forEach()</td>
+      <td>
+        - Executes a function on each element <br>
+        - Always goes through all elements <br>
+        - Can't use break/continue
+      </td>
+    </tr>
+    <tr>
+      <td>slice(start, end)</td>
+      <td>
+        - Does not change the original array <br>
+        - Returns a new copy of array From (start) Until before (end) <br>
+        - If there is no (end), then until length <br>
+        - If there is no (start,end), then copy all array <br>
+        - If Negative (-x) , then start from before (x) from the end <br>
+      </td>
+    </tr>
+    <tr>
+      <td>splice(start, deleteCount, item1, item2, ...)</td>
+      <td>
+        - Changes the original array <br>
+        - Returns an array of deleted elements only<br>
+        - Adds or removes elements anywhere in the array<br>
+        - Deletes + adds at the same time<br>
+        - From (start) delete (deleteCount) elements Then add (item1, item2, ...) from (start)<strong>it self</strong><br>
+        - If (deleteCount) = 0 , then no deletion <br>
+        - If (item1, item2, ...) not exist , then no addition <br>
+        - If there is no (deleteCount) , then delete all elements after the (start) <br>
+        - If Negative (-x) , then start from before (x) from the end <br>
+      </td>
+    </tr>
+    <tr>
+      <td>includes(value,start)</td>
+      <td>
+        - Checks if a certain element is present in the array or not. <br>
+        - Uses strict equality (===) <br>
+        - Returns true/false <br>
+        - (start) is optional , default = 0 <br>
+        - works with <strong>NaN</strong><br>
+      </td>
+    </tr>
+    <tr>
+      <td>indexOf(value,start)</td>
+      <td>
+        - Searches for a specific element in the array. <br>
+        - Search from beginning to end <br>
+        - It returns the index of the first time it finds it. <br>
+        - If it does not find it, it returns -1. <br>
+        - (start) is optional , default = 0 <br>
+        - Uses strict equality (===) <br>
+        - Does not work with <strong>NaN</strong><br>
+      </td>
+    </tr>
+    <tr>
+      <td>lastIndexOf(value,start)</td>
+      <td>
+        - Search from end to beginning <br>
+        - returns the index of the last time it finds it. <br>
+        - The rest is the same as indexOf <br>
+      </td>
+    </tr>
+    <tr>
+      <td>find(function(){})</td>
+      <td>
+        - Returns the value of the first element that passes a test. <br>
+        - If no elements pass the test, it returns undefined. <br>
+        - The test is a function that you provide. <br>
+      </td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>
+        - Creates a new array with all elements that pass the test. <br>
+        - If no elements pass the test, it returns an empty array. <br>
+        - The test is a function that you provide. <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pre class="prew">
+notes: 
+  - When you declare an array with const, you can change the elements inside the array,
+    but you cannot reassign the array itself to a new value.
+</pre>
+  </section>
+  <pre class="prew">
+<h2>RegEx</h2>
+<table>
+  <tr>
+    <td>[a-z]</td>
+    <td>small letters</td>
+  </tr>
+  <tr>
+    <td>[A-Z]</td>
+    <td>caopital letters</td>
+  </tr>
+  <tr>
+    <td>[d-k]</td>
+    <td>small letters from d to k</td>
+  </tr>
+  <tr>
+    <td>[3-8]</td>
+    <td>numbers from 3 to 8</td>
+  </tr>
+    <tr>
+    <td>[0-9]</td>
+    <td>numbers from 0-9</td>
+  </tr>
+  <tr>
+    <td>\d</td>
+    <td>numbers from 0-9</td>
+  </tr>
+  <tr>
+    <td>[a-zA-Z]</td>
+    <td>small letters or capital letters</td>
+  </tr>
+  <tr>
+    <td>[a-z][A-Z]</td>
+    <td>small letters and capital letters</td>
+  </tr>
+  <tr>
+    <td>[dfg]</td>
+    <td>dfg, gfd, dgf, ...</td>
+  </tr>
+  <tr>
+    <td>[@#$%^7*_-\/]</td>
+    <td>special characters</td>
+  </tr>
+  <tr>
+    <td>{6}</td>
+    <td>لا يقل عن 6</td>
+  </tr>
+  <tr>
+    <td>{8,}</td>
+    <td>لا يقل عن 8 ويزيد الى ما لا نهايه</td>
+  </tr>
+    <tr>
+    <td>{,9}</td>
+    <td>ممكن ميكتبش خالص بس لا يزيد عن 9</td>
+  </tr>
+  <tr>
+    <td>{4,10}</td>
+    <td>يكتب من 4 الى 10 حروف</td>
+  </tr>
+  <tr>
+    <td>^</td>
+    <td>البداية</td>
+  </tr>
+  <tr>
+    <td>$</td>
+    <td>النهاية</td>
+  </tr>
+</table>
+  </pre>
+  <script src="assets/JS/js 5.js"></script>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

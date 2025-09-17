@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercise Web Page</title>
+  <link rel="stylesheet" href="assests/css/css 4.css">
+</head>
+<body>
+  <!-- Loaders -->
+  <div class="loader-circle"></div>
+  <div class="loader-dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- محتوى الصفحة -->
+  <section class="content">
+    <section>
+      <p>Responsive Cards</p>
+      <p>box animation</p>
+      <p>loader-dots</p>
+      <p>loader-circle</p>
+    </section>
+    <section class="cards">
+      <div class="card">
+        <div class="img"></div>
+        <h3>Card Title 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button>More</button>
+      </div>
+      <div class="card">
+        <div class="img"></div>
+        <h3>Card Title 2</h3>
+        <p>Aliquam tincidunt mauris eu risus feugiat at.</p>
+        <button>More</button>
+      </div>
+      <div class="card">
+        <div class="img"></div>
+        <h3>Card Title 3</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error.</p>
+        <button>More</button>
+      </div>
+      <div class="card">
+        <div class="img"></div>
+        <h3>Card Title 4</h3>
+        <p>Ut enim ad minima veniam, quis nostrum exercitationem.</p>
+        <button>More</button>
+      </div>
+    </section>
+
+    <div id="over-flow">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, magnam cupiditate autem, ad quo harum, nemo placeat itaque veritatis dignissimos ea! Nisi nobis dolore adipisci magni libero eveniet, reiciendis excepturi.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, magnam cupiditate autem, ad quo harum, nemo placeat itaque veritatis dignissimos ea! Nisi nobis dolore adipisci magni libero eveniet, reiciendis excepturi.
+      </p>
+    </div>
+    <div class="box1">Level 1</div>
+  </section>
+  <script>
+    // Loader سيظهر لمدة معينة فقط  
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        document.body.classList.add("loaded");
+      }, 1500);//1.5s
+    });
+  </script>
+</body>
+</html>
