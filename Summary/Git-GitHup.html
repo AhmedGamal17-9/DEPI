@@ -182,13 +182,13 @@ git remote add &lt;remote-repo-name&gt; &lt;Link Git-Hup Repo&gt;
 - Pushes your code from the local Pushes your code from the local branch to the remote on GitHub.
 - (-u) : Use in first push to push andcreate a tracking relationship between them.
 <pre>  
-git push -u &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
-git push &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
+git push -u &lt;remote-repo-name&gt; &lt;local-branch-name&gt;
+git push &lt;remote-repo-name&gt; &lt;local-branch-name&gt;
 </pre><hr>
 - It fetches changes from the remote branch and merges them with the local branch it's currently on.
 - It's actually = fetch + merge.
 <pre>
-git pull &lt;remote-repo-name&gt; &lt;local-repo-name&gt;
+git pull &lt;remote-repo-name&gt; &lt;local-branch-name&gt;
 </pre><hr>
 - It retrieves changes from the remote, but without merging.
 
