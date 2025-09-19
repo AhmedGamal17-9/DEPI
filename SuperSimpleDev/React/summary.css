@@ -9,7 +9,7 @@ body {
   gap: 20px;
 }
 /*--------------------------------------------------------------------------*/
- header {
+header {
   height: 15vh;
   background-color: rgba(18, 93, 255, 0.905);
   color: white;
@@ -20,10 +20,6 @@ body {
   justify-content: start; 
   align-items: center;
   gap: 30px;
-}
-header h1{
-  display: inline;
-  color: greenyellow;
 }
 
 .nav-links {

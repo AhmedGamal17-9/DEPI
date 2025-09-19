@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>React 1</title>
+</head>
+<body>
+ <div id="header"></div>
+  <pre class="prew">
+ - state management
+ - spa : single page application
+ - componant : code show UI
+ - Virtual DOM
+ - xhooks 
+ - jsx
+ - prox
+<hr>
+Module :
+
+must : &lt;script type="module" src=""&gt;&lt;/script&gt;
+
+js :
+export const name="ahmed";
+---- 
+const name="ahmed";
+const variab=100;
+export {name , age}
+----
+const sum = () => {
+
+}
+export default sum;
+
+ts or jsx : import variab;
+ <hr>
+main.jsx => App.jsx =>root(index.html) =>  useState 
+useState : hook inside react lip. used for state management
+<hr>
+ - First version of React was working with class component => OOP
+ - Then React developed to work with Function component + State Management
+ - Function Component => we write inside it all code (HTML + JS)
+ - All parts of the project are divided into pages in Function Component.
+ - App.jsx is the first function will called.
+ - App.jsx is the basic Component.
+ - Other pages must import in App.jsx then call in it
+<hr>
+<h2> Function Component </h2>
+import '---'
+import --- from '---'
+function fanction-name (){
+// State Management
+// Logic with html  
+return(
+  &lt;&gt;
+   //html code 
+  &lt;/&gt;
+)
+}
+export default fanction-name
+<hr>
+Calling Component in function :
+&lt;Component-name&gt;&lt;/Component-name&gt;
+or
+&lt;Component-name /&gt;
+<hr>
+<h2>.jsx</h2>
+html in js : 
+return(
+  &lt;&gt;
+   //html code 
+  &lt;/&gt;
+)
+-------------
+js in html : {}
+-------------
+HTML Attrputes is camel case
+ex :
+html : class
+React : className
+-------------
+any tag must have close :
+&lt;&gt;&lt;/&gt;
+or
+&lt;/&gt;
+-------------
+we use ternary oprator
+{condition ? true : false}
+if statement Not exit
+-------------
+loop :
+items.map(
+  (item,indces)=>(
+    ....
+    )
+)
+-------------
+
+<hr>
+
+
+  </pre>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
