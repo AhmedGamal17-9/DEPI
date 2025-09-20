@@ -43,11 +43,23 @@
       <td>Number of array elements</td>
     </tr>
     <tr>
-      <td>forEach()</td>
+      <td>forEach(function_as_parameter)</td>
       <td>
-        - Executes a function on each element <br>
+        - Executes a function on each element <br>      
+        - However, this execution means that each element is assigned a parameter to the function you assign. <br>
+        - Inside the function, you decide what to do with the element (print it, store it, modify it, etc.). <br>
         - Always goes through all elements <br>
-        - Can't use break/continue
+        - Can't use break/continue <br>
+        - returns undefined, which means you cannot store its result in a variable.
+      </td>
+    </tr>
+    <tr>
+      <td>.map(function_as_parameter)</td>
+      <td>
+        - map() is a built-in function in JavaScript. <br>
+        - It iterates over each element in the array and applies the function you give it. <br>
+        - returns a new array containing the results. <br>
+        - 👀 Important: It doesn't change the original.
       </td>
     </tr>
     <tr>

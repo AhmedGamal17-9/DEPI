@@ -72,6 +72,7 @@ pre {
   border-radius: 5px;
   font-size:15px;
   text-align: start;
+  margin-bottom: 0;
   }
 
 .prew {
@@ -81,7 +82,7 @@ pre {
   border: 1px solid #ccc;         
   border-radius: 10px;
   font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.5;
   overflow-x: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
@@ -94,7 +95,6 @@ pre {
 hr {
   border: none;
   border-top: 3px solid #ccc;
-  margin: 20px 0;
 }
 
 p{

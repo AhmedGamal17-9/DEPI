@@ -12,98 +12,239 @@
 <body>
  <div id="header"></div>
   <pre class="prew">
- - state management
- - spa : single page application
- - componant : code show UI
- - Virtual DOM
- - xhooks 
- - jsx
- - prox
-<hr>
-Module :
+- Create React Project :
+  ● npm  create  vite@latest  react-project-name
+  ● cd react-project-path
+  ● npm install
+<hr><!--------------------------------------------------------------------------------------------->
+- Run React Project :
+  ● npm run dev
+<hr><!--------------------------------------------------------------------------------------------->
+- node_module : The folder that stores all the libraries and dependencies you have installed in the project.
 
-must : &lt;script type="module" src=""&gt;&lt;/script&gt;
+- public
+  ● The folder that stores static files that don't change or are subject to the build tool.
+  ● Everything here remains accessible as it is on the server.
 
-js :
-export const name="ahmed";
----- 
-const name="ahmed";
-const variab=100;
-export {name , age}
-----
-const sum = () => {
+  - src :The most important folder (your code).
+  ● assets
+    o You can place images, CSS files, or any other static items in it, but you want to import them into your code.
+    o The difference between it and public/: what's being processed here is
+  ● app.jsx
+    o It is the root component.
+    o contains the basic components of the application.
+    o It often contains the basic layout of the page.
+  ● main.jsx
+    o It is called only once to run &lt;App /&gt;.
+    o This is the main entry point for the application.
+    o Call to ReactDOM.createRoot(...)
+    o Render &lt;App /&gt; inside the #root element in index.html.
+  ● app.css  
+  ● index.css : Global CSS file
 
+- .gitignore
+
+- eslint.config.js : ESLint configuration file (a tool that helps you detect errors in your code and keep your code organized).
+
+- index.html
+  ● You'll find a div with an ID named "root," and React renders the entire application inside it.
+  ● Vite uses this file as the launcher for the application.
+
+- package-lock.json : It locks the library versions so that anyone who runs {npm install} will get the exact same version.
+
+- package.json   
+
+- README.md 
+
+- vite.config.js
+<hr><!--------------------------------------------------------------------------------------------->
+- Previously React relied on Class Components.
+  ● To use state or track lifecycles (mount, update, unmount)
+  ● you had to write a class and use this.setState.
+
+- Problem:
+  ● The code was more complex.
+  ● You need to understand OOP concepts well.
+  ● It's difficult to partition logic and reuse it between components.
+
+- Change (React 16.8):
+  ● Hooks were added (such as useState, useEffect, etc.).
+  ● Hooks allowed you to write the same capabilities (state + lifecycle) but inside Function Components.
+
+  - Current State:
+  ● Function Components are simpler and clearer.
+  ● You can write UI + logic inside regular functions.
+  ● Most new projects now use Function Components instead of Classes.
+<hr><!--------------------------------------------------------------------------------------------->
+  ● All parts of the project are divided into pages in Function Component.
+  ● App.jsx is the first function will called.
+  ● App.jsx is the basic Component.
+  ● Other pages must import in App.jsx then call in it
+  ● main.jsx => App.jsx =>root(index.html) =>  useState 
+<hr><!--------------------------------------------------------------------------------------------->
+- Hooks
+  ● Ready-made React functions
+  ● use inside Function Components to give them additional capabilities.
+<hr><!--------------------------------------------------------------------------------------------->
+- state management:
+  ● Component elements changes over time.
+  ● When it changes, React re-renders the component, and the UI updates automatically.
+  ● ex : the number of button clicks, the input value.
+  ● to declere state we use a Hook called useState.
+  ● const [state_name, function_changing_it] = useState(state_default_value);
+  ● We need to call useState at the highest level of the function.
+  ● It's forbidden to change the state directly (❌ count = 5).
+  ● Correct ✅: setCount(5).
+  ● The state is stored independently for each copy of the component.
+<pre>
+import { useState } from 'react';
+
+function Counter(){
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;العداد: {count}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt; + &lt;/button&gt;
+      &lt;button onClick={() => setCount(count - 1)}&gt; - &lt;button&gt;
+      &lt;button onClick={() => setCount(0)}&gt; Reset to zero &lt;button&gt;
+    &lt;/div&gt;
+  );
 }
-export default sum;
-
-ts or jsx : import variab;
- <hr>
-main.jsx => App.jsx =>root(index.html) =>  useState 
-useState : hook inside react lip. used for state management
-<hr>
- - First version of React was working with class component => OOP
- - Then React developed to work with Function component + State Management
- - Function Component => we write inside it all code (HTML + JS)
- - All parts of the project are divided into pages in Function Component.
- - App.jsx is the first function will called.
- - App.jsx is the basic Component.
- - Other pages must import in App.jsx then call in it
-<hr>
-<h2> Function Component </h2>
-import '---'
-import --- from '---'
-function fanction-name (){
-// State Management
-// Logic with html  
-return(
-  &lt;&gt;
-   //html code 
-  &lt;/&gt;
-)
-}
-export default fanction-name
-<hr>
+</pre>
+<hr><!--------------------------------------------------------------------------------------------->
+- StrictMode 
+  ● is a development tool that helps you discover potential issues in your code, 
+  ● all of its work is visible in development mode only.
+<hr><!--------------------------------------------------------------------------------------------->
+- componant
+  ● Code that displays the UI.
+  ● similar to a function that returns HTML with JS logic inside.
+  ● Types:
+    o Function Component (popular now) .
+    o Class Component (old, had lifecycle methods and OOP body).
+  ● give us Reusability of componant
+    o ex : create 4 product card
+    o create one componant
+    o Reuse that componant 4 times
+  ● we use props: the properties we give to the component when calling it in App.jsx
+  ● each copy of conponant has its own props
+<hr><!--------------------------------------------------------------------------------------------->
 Calling Component in function :
 &lt;Component-name&gt;&lt;/Component-name&gt;
 or
-&lt;Component-name /&gt;
-<hr>
-<h2>.jsx</h2>
-html in js : 
-return(
-  &lt;&gt;
-   //html code 
-  &lt;/&gt;
-)
--------------
-js in html : {}
--------------
-HTML Attrputes is camel case
-ex :
-html : class
-React : className
--------------
-any tag must have close :
+&lt;Component-name 
+prop1=valu
+prop2=valu
+prop3=valu
+prop4=valu
+/&gt;
+<hr><!--------------------------------------------------------------------------------------------->
+- Virtual DOM :
+  ● React doesn't constantly modify the real DOM.
+  ● Instead:
+    o We write JSX 
+    o Then React creates a virtual DOM (a lightweight version of the DOM).
+    o When the state changes, React performs a virtual re-render of the component and calculates the difference (diff) between the old and new virtual DOM.
+    o It then applies the smallest possible changes to the real DOM , which improves performance over updating the entire DOM every time.
+  ● This process is called reconciliation, and the diff algorithm determines what changes.
+<hr><!--------------------------------------------------------------------------------------------->
+- jsx 
+  ● jsx = JavaScript XML
+  ● It lets you write HTML code inside JavaScript/React files.
+  ● Finally, it's converted to regular JavaScript code using Babel (or any compiler).
+  ● Combines JavaScript logic + HTML syntax in one place.
+  ● You can put any JavaScript expression between { }
+  ● You must write Attributes HTML in : camelCase
+  ● Any JSX component must return only one element, So we use:
+    o &lt;div&gt; &lt;div/&gt; as a container
+    o React.Fragment &lt;&gt; &lt;/&gt;
+  ● There is no direct if/else statement in JSX, We use JavaScript Ternary Operator
+<pre>{condition ? true : false}</pre>
+  ● There is no direct for-loop in JSX, We Use array.map and assign a key to each item in a object.
+  ● Array.map(function)
+    o map() is a built-in function in JavaScript
+    o It iterates over each element in the array and applies the function you give it.
+    o returns a new array containing the results
+    o 👀 Important: It doesn't change the original.
+<pre>
+array.map(
+  (element, index, array) => {
+  // element = العنصر الحالي
+  // index
+  // array   = نفس الـ array الأصلي
+})
+<hr> 
+const items = [
+  { id: 1, text: "Apple" },
+  { id: 2, text: "Banana" },
+  { id: 3, text: "Orange" }
+];
+
+function App() {
+  return (
+    &lt;ul&gt;
+      {
+      items.map(
+        item => ( &lt;li key={item.id}&gt; {item.text} &lt;/li&gt; )
+      )
+      }
+    &lt;ul/&gt;
+  );
+}
+
+</pre>
+
+The key should be constant and unique for each item.
+Using an index can be problematic if the list changes.
+
+<pre>
+const items = ["Apple", "Banana", "Orange"];
+const list = (
+   &lt;ul&gt;
+    {
+    items.map(
+      item => &lt;li key={item}&gt; {item} &lt;/li&gt;
+    )
+    }
+  &lt;ul/&gt; 
+);
+</pre>  
+  ● any tag must have close :
+<pre>
 &lt;&gt;&lt;/&gt;
 or
-&lt;/&gt;
--------------
-we use ternary oprator
-{condition ? true : false}
-if statement Not exit
--------------
-loop :
-items.map(
-  (item,indces)=>(
-    ....
-    )
-)
--------------
+&lt;/&gt;    
+</pre>
+  ● JSX is not understood by the browser.
+  ● It is transformed to js by using Babel.lip.
+<hr><!--------------------------------------------------------------------------------------------->
+- ES Modules in JavaScript
+  ● In JS, we can split code into files and export/import
+  ● Import:
+<pre>
+import sum from './sum.js';             // default //
+import { name, age } from './info.js';  // named   //
+import sum, { name } from './file.js';  // both    //
+</pre>  
+  ● Named export:
+<pre>
+export const name = "ahmed";
+export const age = 22;
+// or
+const name = "ahmed";
+const age = 22;
+export { name, age };  
+</pre>  
+  ● Default export:
+<pre>
+const sum = () => { /*...*/ }
+export default sum;
+</pre>
 
-<hr>
-
-
-  </pre>
+  ● In index.html, if you want to use ES Module files directly in the browser:
+<pre>&lt;script type="module" src=""&gt;&lt;script/&gt;</pre>
+</pre>
     <script>
     fetch("header.html")
       .then(res => res.text())

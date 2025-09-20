@@ -97,16 +97,32 @@ console.log(typeof(function_name2));
 2- return
 */
 console.log('----------------------------------arrow function--------------------------------');
-var arrowfunction_name = (parameter) => {
-  //code
-};
-console.log(arrowfunction_name);
-console.log(typeof(arrowfunction_name));
 /*
-1- لازم تتحط جوة متغير
-1- Can not accessing a function before it's defined (No hosting)
-2- There is no return
+1- The Arrow Function itself doesn't have a direct "name."
+2- You write an anonymous function, then store it in a variable, which is its name.
+3- Can not accessing a function before it's defined (No hosting)
+4-If you write expression without {} or in (), the expression will automatically return.
+  ex : expression
+  ex : (expression)
+5-If you use {} (block body), you must write the return yourself.
+  ex : {expression}
 */
+/*---------------without Parameter-----------------*/
+var fun1 = 
+() => expression;
+/*---------------one Parameter---------------------*/
+var fun2 = 
+(parameter) => expression;
+/*---------------one Parameter---------------------*/
+var fun3 = 
+parameter => expression;
+/*---------------many Parameter--------------------*/
+var fun4 = 
+(parameter1,parameter2) => expression ;
+/*------------------------------------*/
+console.log(fun1);
+console.log(typeof(fun1));
+
 console.log('----------------------------------DOM------------------------------------------');
 /*
 document.getElementById("id")
