@@ -13,7 +13,7 @@ It's created as a reference for myself and for anyone who wants to benefit from 
 ```bash
 ├── DEPI/
 │   ├── Table of contents
-│   ├── Summary/        # HTML-CSS-JS-TS-Bootstrap
+│   ├── Summary/        # HTML-CSS-JS-TS-Bootstrap-Git&GitHup 
 │   ├── React-project/  # React Project
 │   └── Practices/      # Practical Training
 │
