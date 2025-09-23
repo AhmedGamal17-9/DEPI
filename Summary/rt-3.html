@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>React 3</title>
+</head>
+<body>
+ <div id="header"></div>
+  <pre class="prew">
+- useState 
+  ● store valus to change it after update
+  ● intial state => like constractor in life cycle method
+  ● set state() => like setter in update in life cycle method
+  ● const [state_name, method_changing_it] = useState(state_initial_value);
+  ● It's forbidden to change the state directly (❌ count = 5).
+  ● Correct ✅: setCount(5).
+  <pre>
+import { useState } from 'react';
+
+function Counter(){
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;العداد: {count}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt; + &lt;/button&gt;
+      &lt;button onClick={() => setCount(count - 1)}&gt; - &lt;/button&gt;
+      &lt;button onClick={() => setCount(0)}&gt; Reset to zero &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</pre>
+<hr><!--------------------------------------------------------------------------------------------->    
+- state : الدفتر
+____________________________________________________________________________________________________________________________________________________________________________________
+- state_initial_value : الكلام الي في الدفتر
+____________________________________________________________________________________________________________________________________________________________________________________
+- setstate : القلم اللي بيكتب في الدفتر
+____________________________________________________________________________________________________________________________________________________________________________________
+- setstate() : إنك تمسك القلم وتكتب
+____________________________________________________________________________________________________________________________________________________________________________________
+- المباشر state القلم بيغير في محتوي ال
+____________________________________________________________________________________________________________________________________________________________________________________
+- state is primitive datatypes => use setstate() directly 
+____________________________________________________________________________________________________________________________________________________________________________________
+- state is non-primitive datatypes (Array,Object) => use {methods/function} inside setstate()
+  ● it is not allowed to modify the state directly (do not .push, .splice, or obj.key=value on the same state).
+  ● we must always make a copy and return it in setState().
+________________________________________________________________________________________________________________________
+<div id="div_taple">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Add</th>
+      <th>Delete</th>
+      <th>Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+Array 
+(عناصر عادية)
+</td>
+      <td>
+● Use spread operator
+<pre>
+const [list, setList] = useState([1, 2, 3]);
+// أضيف 4
+setList([...list, 4]);
+</pre>  
+      </td>
+      <td>
+o Use Array.filter() to return a new version without the element.
+<pre>
+const [list, setList] = useState([1, 2, 3]);
+// أشيل 2
+setList(list.filter(item => item !== 2));
+</pre> 
+      </td>
+      <td>
+o if state is Array : Use Array.map( c ? t:f ) 
+<pre>
+const [nums, setNums] = useState([1, 2, 3]);
+// أغير العنصر اللي في index = 1 (يعني الرقم 2) واخليه 200
+setNums(nums.map((n, i) => i === 1 ? 200 : n));
+----------------------------------------------
+const [names, setNames] = useState(["ali", "omar", "ahmed"]);
+
+// أغير "omar" إلى "khaled"
+setNames(names.map(name => name === "omar" ? "khaled" : name));
+</pre> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+Array
+(with Object Element)</td>
+      <td>
+● Use spread operator
+<pre>
+const [tasks, setTasks] = useState([
+  {id: 1, name: "task1", done: false},
+  {id: 2, name: "task2", done: true},
+]);
+
+// أضيف مهمة جديدة
+setTasks([
+  ...tasks,
+  {id: 3, name: "task3", done: false}
+]);
+</pre>        
+      </td>
+      <td>
+o Use Array.filter() to return a new version without the element.
+<pre>
+const [tasks, setTasks] = useState([
+  {id: 1, name: "task1", done: false},
+  {id: 2, name: "task2", done: true},
+]);
+
+// أشيل المهمة رقم 2
+setTasks(tasks.filter(t => t.id !== 2));
+</pre>
+      </td>
+      <td>
+o Use Array.map( c ? t:f ) and t or f is spread operator
+<pre>
+ const [tasks, setTasks] = useState([
+  {id: 1, name: "task1", done: false},
+  {id: 2, name: "task2", done: true},
+]);
+// أغير حالة المهمة رقم 1
+setTasks(
+  tasks.map(t =>
+    t.id === 1 ? {...t, done: !t.done} : t
+  )
+);
+</pre>        
+      </td>
+    </tr>
+    <tr>
+      <td>Object</td>
+      <td>
+● Use spread operator
+<pre>
+const [user, setUser] = useState({name: "Ahmed", age: 20});
+// أضيف عنوان
+setUser({...user, address: "Cairo"});
+</pre>         
+      </td>
+      <td>
+● Use spread operator
+<pre>
+const [user, setUser] = useState({name: "Ahmed", age: 20, address: "Cairo"});
+// أشيل address
+const { address, ...rest } = user;
+setUser(rest);
+// delete بعد ما تنسخ ممكن تستخدم 
+</pre>        
+      </td>
+      <td>
+● Use spread operator
+<pre>
+const [user, setUser] = useState({name: "Ahmed", age: 20});
+// أغير العمر
+setUser({...user, age: 21});
+</pre>        
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div> 
+<hr><!--------------------------------------------------------------------------------------------->    
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <tr><td colspan="2" style="padding: 10px; font-size: xx-large;">---------------------------👀 Important: doesn't change the original array.--------------------------<br>---------------------------👀 Important: Return New Array--------------------------------------------</td></tr>
+    </tr>
+    <tr>
+      <td>✨ spread operator :<br> [ ...array-name ] </td>
+      <td>
+        - 🆕 It creates a new copy of the array or object ➕ you can add elements to it. <br>
+        - ℹ️ Not a function, just a syntax. <br>
+        - usage: ✏️ To add/edit safely. <br>
+        - usage: used with methods like slice or filter to give a new version of state in React. <br>
+      </td>
+    </tr>
+    <tr>
+      <td>✂️ slice(start, end)</td>
+      <td>
+        - 🆕 Returns a new copy of array From (start) Until before (end) <br>
+        - If there is no (end), then until length <br>
+        - If there is no (start,end), then 📋 copy all array <br>
+        - If Negative (-x) , then start from before (x) from the end <br>
+        - usage: 🗑️ Delete item from Array. <br>
+        - usage: 📋 Copy a of the All Array. <br>
+        - usage: 📋 Copy a specific part of the Array. <br>
+      </td>
+    </tr>
+    <tr>
+      <td>🔁 .map(<br>(element,index,array) => ()<br>)</td>
+      <td>
+        - It iterates over each element in the array and applies the function you give it. <br>
+        - Returns a new array containing the results with the same length. <br>
+        - use key as a unique identifier for each element returned from .map() so React can track which items changed, added, or removed.
+        - usage: 🔂 as a loop. <br>
+        - usage: 🎨 To render elements in return(). <br>
+        - usage: ✏️ To update Array. <br>
+      </td>
+    </tr>  
+    <tr>
+      <td>🗑️ filter(<br>(element,index,array) => ()<br>)</td>
+      <td>
+        - Creates a new array with all elements that pass the test. <br>
+        - If no elements pass the test, it returns an <strong>empty array</strong>. <br>
+        - usage: 🗑️ To Delete item from Array. <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <tr>
+    <tr><td colspan="2" style="padding: 10px; font-size: xx-large;">---------------------------👀 Important: doesn't change the original array.--------------------------</td></tr>
+  </tr>
+  <tr>
+    <td>🔍 find(<br>(element,index,array) => ()<br>)</td>
+    <td>
+      - 🔍 Returns the value of the first element that passes a test. <br>
+      - If no elements pass the test, it returns <strong>undefined</strong>. <br>
+    </td>
+  </tr>
+  <tr>
+    <td>✅❌ includes(value,start)</td>
+    <td>
+      - ✅ Checks if a certain element is present in the array or not. <br>
+      - Uses === strict equality ⚖️ <br>
+      - Returns ✅ true / ❌ false <br>
+      - (start) is optional , default = 0 <br>
+      - ⚡ works with <strong>NaN</strong> <br>
+    </td>
+  </tr>
+</table>
+<hr><!--------------------------------------------------------------------------------------------->
+
+<hr><!--------------------------------------------------------------------------------------------->    
+
+<hr><!--------------------------------------------------------------------------------------------->    
+  </pre>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

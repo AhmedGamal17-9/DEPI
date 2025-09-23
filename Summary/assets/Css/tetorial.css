@@ -82,9 +82,9 @@ pre {
   border: 1px solid #ccc;         
   border-radius: 10px;
   font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
-  overflow-x: auto;
+  overflow-x:hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
   margin-left: 15px;
 }
@@ -117,20 +117,28 @@ input {
   border-radius: 3px;
 }
 
+#div_taple{
+  overflow-x: auto;
+}
+
 table {
-  width: 99%;
-  border: 1px solid blue;
-  border-collapse: collapse;
-  margin: 5px 5px;
-  border-radius: 5px ;
-  line-height: 35px;
+border: 1px solid blue;
+border-collapse: collapse;
+margin: 5px 5px;
+/*line-height: 35px;*/
 }
-
 th, td {
-  border: 4px solid rgb(56, 135, 255);
-  padding: 0px 10px;
+border: 4px solid rgb(56, 135, 255);
+padding: 0px 5px;
 }
-
+td pre{
+padding: 15px;
+width:fit-content ;
+border-radius: 5px;
+font-size:15px;
+text-align: start;
+margin-bottom: 0; 
+}
 img {
   width: auto;
   height: 300px; 

@@ -18,6 +18,7 @@
   ● npm install
 <hr><!--------------------------------------------------------------------------------------------->
 - Run React Project :
+  ● cd react-project-path
   ● npm run dev
 <hr><!--------------------------------------------------------------------------------------------->
 - node_module : The folder that stores all the libraries and dependencies you have installed in the project.
@@ -81,37 +82,6 @@
   ● App.jsx is the basic Component.
   ● Other pages must import in App.jsx then call in it
   ● main.jsx => App.jsx =>root(index.html) =>  useState 
-<hr><!--------------------------------------------------------------------------------------------->
-- Hooks
-  ● Ready-made React functions
-  ● use inside Function Components to give them additional capabilities.
-<hr><!--------------------------------------------------------------------------------------------->
-- state management:
-  ● Component elements changes over time.
-  ● When it changes, React re-renders the component, and the UI updates automatically.
-  ● ex : the number of button clicks, the input value.
-  ● to declere state we use a Hook called useState.
-  ● const [state_name, function_changing_it] = useState(state_default_value);
-  ● We need to call useState at the highest level of the function.
-  ● It's forbidden to change the state directly (❌ count = 5).
-  ● Correct ✅: setCount(5).
-  ● The state is stored independently for each copy of the component.
-<pre>
-import { useState } from 'react';
-
-function Counter(){
-  const [count, setCount] = useState(0);
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;العداد: {count}&lt;/p&gt;
-      &lt;button onClick={() => setCount(count + 1)}&gt; + &lt;/button&gt;
-      &lt;button onClick={() => setCount(count - 1)}&gt; - &lt;button&gt;
-      &lt;button onClick={() => setCount(0)}&gt; Reset to zero &lt;button&gt;
-    &lt;/div&gt;
-  );
-}
-</pre>
 <hr><!--------------------------------------------------------------------------------------------->
 - StrictMode 
   ● is a development tool that helps you discover potential issues in your code, 

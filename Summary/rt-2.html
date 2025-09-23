@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="assets/Css/tetorial.css">
+  <title>React 2</title>
+</head>
+<body>
+ <div id="header"></div>
+  <pre class="prew">
+- Any component has 3 main phases in its life:
+  ● Mounting phase
+    o The component is displayed on the screen for the first time.
+  ● Updating phase
+    o It happens when a component is re-rendered (change state or props ).
+  ● Unmounting phase
+    o It happens when the component is removed from the screen (for example, the page changed or a condition caused the component to disappear).
+  <hr><!--------------------------------------------------------------------------------------------->
+- state : 
+  ● Component elements changes over time.
+  ● When it changes, React re-renders the component, and the UI updates automatically.
+  ● ex : the number of button clicks, the input value.
+  ● to declere state we use a Hook called useState.
+  ● The state is stored independently for each copy of the component.
+
+<hr><!--------------------------------------------------------------------------------------------->
+- Hooks
+  ● Ready-made React Methods/ API
+  ● must be import
+  ● use inside Function Components to give them additional capabilities {state management}.
+  ● We need to call hook at the highest level of the function.
+  ● we use to : State - lifecycle
+  ● Types :
+    o useState
+    o useEffect
+    o useCallback
+    o useRef
+    o useLayoutEffect
+    o useContext
+    o useReducer
+    o custom hook
+</pre>
+    <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

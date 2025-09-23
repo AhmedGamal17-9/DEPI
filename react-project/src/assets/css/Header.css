@@ -1,47 +1,60 @@
 #Header {
-  width: 100%;
-  height: 80px;
+  height: 100px;
   background-color: #f8f8f8;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-bottom: 1px solid #ccc;
+  padding: 0 30px;
 }
-
-#nav_links {
+/*----------------------------------------------------------------------------------*/
+#Header_brand-div{
+  padding: 10px ;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+#Header_brand-div_weblogo {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 50%;
+}
+#Header_brand-div_brand-name{
+  font-weight:bold;
+  font-size: x-large;
+  color:#333 ;
+}
+/*----------------------------------------------------------------------------------*/
+#Header_nav-links {
   display: flex;
   flex-direction: row;
   gap: 50px;
   margin: 0;
-  padding: 0;
+  padding: 0;  
 }
 
-.nav_link {
+.Header_nav-links_nav-link {
   list-style-type: none;
 }
 
-.nav_link a {
+.Header_nav-links_nav-link a {
   text-decoration: none;
   font-size: 18px;
   color: #333;
   transition: color 0.3s ease;
 }
 
-.nav_link a:hover {
+.Header_nav-links_nav-link a:hover {
   color: #007bff;
 }
-
-#weblogo {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #333;
-  border-radius: 50%;
-}
-
-#nav_Sign-in {
-  width: 100px;
-  height: 40px;
+/*----------------------------------------------------------------------------------*/
+#Header_Sign-in {
+  width: 5%;
+  height: 40%;
+  padding: 5px;
   font-size: 16px;
   background-color: #007bff;
   color: #fff;
@@ -51,6 +64,6 @@
   transition: background-color 0.3s ease;
 }
 
-#nav_Sign in:hover {
+#Header_Sign-in:hover {
   background-color: #0056b3;
 }
