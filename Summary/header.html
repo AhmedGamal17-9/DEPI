@@ -1,66 +1,110 @@
-  <style>
-    header {
-  height: 15vh;
-  background-color: rgba(18, 93, 255, 0.905);
-  color: white;
-  border-radius: 8px;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: start; 
-  align-items: center;
-  gap: 30px;
-}
+<style>
+  header {
+    height: auto;
+    background: linear-gradient(90deg, rgba(18, 93, 255, 0.9), rgba(0, 180, 255, 0.9));
+    color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
 
-.nav-links {
-  text-align: center;
-  list-style: none;
-  display: inline;
-}
+  .nav-sections {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-.nav-links li {
-  display: inline;
-  margin-left: 10px;
-}
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: large;
-}
+  .section h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
-.nav-links li a:hover {
-   text-decoration: underline;
-   color:red;
-}
-  </style>
-  <header>
-      <ul class="nav-links">
-        <li><a href="html 2.html">2</a></li>
-        <li><a href="html 3.html">3</a></li>
-        <li><a href="html 4.html">4</a></li>
+  .section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
-        <li><a href="css 1.html">5</a></li>
-        <li><a href="css 2.html">6</a></li>
-        <li><a href="css 3.html">7</a></li>
-        <li><a href="css 4.html">8</a></li>
+  .section ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
 
-        <li><a href="js 1.html">9</a></li>
-        <li><a href="js 2-1.html">10</a></li>
-        <li><a href="js 3.html">11</a></li>
-        <li><a href="js 4.html">12</a></li>
-        <li><a href="js 5.html">13</a></li>
-        <li><a href="js 6.html">14</a></li>
+  .section ul li a:hover {
+    background: white;
+    color: #125dff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+</style>
 
-        <li><a href="ts 1.html">18</a></li>
-        <li><a href="ts 2.html">19</a></li>
-        <li><a href="ts 3.html">20</a></li>
-        <li><a href="ts 4.html">21</a></li>
-
-        <li><a href="rt 1.html">22</a></li>
-        <li><a href="rt 2.html">23</a></li>
-        <li><a href="rt 3.html">24</a></li>
-        <li><a href="rt 4.html">25</a></li>
+<header>
+  <div class="nav-sections">
+    <div class="section">
+      <h3>HTML</h3>
+      <ul>
+        <li><a href="html-2.html">HTML-2</a></li>
+        <li><a href="html-3.html">HTML-3</a></li>
+        <li><a href="html-4.html">HTML-4</a></li>
       </ul>
-  </header>
+    </div>
+    <div class="section">
+      <h3>CSS</h3>
+      <ul>
+        <li><a href="css-1.html">CSS-1</a></li>
+        <li><a href="css-2.html">CSS-2</a></li>
+        <li><a href="css-3.html">CSS-3</a></li>
+        <li><a href="css-4.html">CSS-4</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>JavaScript</h3>
+      <ul>
+        <li><a href="js-1.html">JS-1</a></li>
+        <li><a href="js-2_1.html">JS-2_1</a></li>
+        <li><a href="js-3.html">JS-3</a></li>
+        <li><a href="js-4.html">JS-4</a></li>
+        <li><a href="js-5.html">JS-5</a></li>
+        <li><a href="js-6.html">JS-6</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>TypeScript</h3>
+      <ul>
+        <li><a href="ts-1.html">TS-1</a></li>
+        <li><a href="ts-2.html">TS-2</a></li>
+        <li><a href="ts-3.html">TS-3</a></li>
+        <li><a href="ts-4.html">TS-4</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>React</h3>
+      <ul>
+        <li><a href="rt-1.html">RT-1</a></li>
+        <li><a href="rt-2.html">RT-2</a></li>
+        <li><a href="rt-3.html">RT-3</a></li>
+        <li><a href="rt-4.html">RT-4</a></li>
+        <li><a href="rt-5.html">RT-5</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

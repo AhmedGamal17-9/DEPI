@@ -14,7 +14,7 @@
   <pre class="prew">
 - useState 
   ● store valus to change it after update
-  ● intial state => like constractor in life cycle method
+  ● state_initial_value => like constractor in life cycle method
   ● set state() => like setter in update in life cycle method
   ● const [state_name, method_changing_it] = useState(state_initial_value);
   ● It's forbidden to change the state directly (❌ count = 5).
@@ -81,7 +81,11 @@ o Use Array.filter() to return a new version without the element.
 <pre>
 const [list, setList] = useState([1, 2, 3]);
 // أشيل 2
-setList(list.filter(item => item !== 2));
+setList(
+  list.filter(
+    item => item !== 2
+  )
+);
 </pre> 
       </td>
       <td>
@@ -89,12 +93,20 @@ o if state is Array : Use Array.map( c ? t:f )
 <pre>
 const [nums, setNums] = useState([1, 2, 3]);
 // أغير العنصر اللي في index = 1 (يعني الرقم 2) واخليه 200
-setNums(nums.map((n, i) => i === 1 ? 200 : n));
+setNums(
+  nums.map(
+    (n, i) => i === 1 ? 200 : n
+  )
+);
 ----------------------------------------------
 const [names, setNames] = useState(["ali", "omar", "ahmed"]);
 
 // أغير "omar" إلى "khaled"
-setNames(names.map(name => name === "omar" ? "khaled" : name));
+setNames(
+  names.map(
+    (name) => name === "omar" ? "khaled" : name
+  )
+);
 </pre> 
       </td>
     </tr>
@@ -126,11 +138,15 @@ const [tasks, setTasks] = useState([
 ]);
 
 // أشيل المهمة رقم 2
-setTasks(tasks.filter(t => t.id !== 2));
+setTasks(
+  tasks.filter(
+    (t) => t.id !== 2
+  )
+);
 </pre>
       </td>
       <td>
-o Use Array.map( c ? t:f ) and t or f is spread operator
+o Use Array.map => ( c ? t:f ) => spread operator
 <pre>
  const [tasks, setTasks] = useState([
   {id: 1, name: "task1", done: false},
@@ -138,8 +154,8 @@ o Use Array.map( c ? t:f ) and t or f is spread operator
 ]);
 // أغير حالة المهمة رقم 1
 setTasks(
-  tasks.map(t =>
-    t.id === 1 ? {...t, done: !t.done} : t
+  tasks.map(
+    (t) => t.id === 1 ? {...t, done: !t.done} : t
   )
 );
 </pre>        
@@ -156,7 +172,7 @@ setUser({...user, address: "Cairo"});
 </pre>         
       </td>
       <td>
-● Use spread operator
+● Use spread operator : Destructuring 
 <pre>
 const [user, setUser] = useState({name: "Ahmed", age: 20, address: "Cairo"});
 // أشيل address
@@ -166,7 +182,7 @@ setUser(rest);
 </pre>        
       </td>
       <td>
-● Use spread operator
+● Use spread operator : overwrite
 <pre>
 const [user, setUser] = useState({name: "Ahmed", age: 20});
 // أغير العمر
@@ -190,16 +206,18 @@ setUser({...user, age: 21});
     <tr><td colspan="2" style="padding: 10px; font-size: xx-large;">---------------------------👀 Important: doesn't change the original array.--------------------------<br>---------------------------👀 Important: Return New Array--------------------------------------------</td></tr>
     </tr>
     <tr>
-      <td>✨ spread operator :<br> [ ...array-name ] </td>
+      <td>✨ spread operator :<br> [ <strong>...</strong>array-name ] </td>
       <td>
-        - 🆕 It creates a new copy of the array or object ➕ you can add elements to it. <br>
+        - 🆕 It creates a new copy of the array or object <br>
+        - ⚠️ in object If you write a property that already exists after or before the <strong>...</strong> the last value overwrite the other-one. <br>  
+        - ⚠️ in object we can delete by spread operator : Destructuring . <br>        
         - ℹ️ Not a function, just a syntax. <br>
         - usage: ✏️ To add/edit safely. <br>
-        - usage: used with methods like slice or filter to give a new version of state in React. <br>
+        - usage: used with methods like filter or slice to give a new version of state in React. <br>
       </td>
     </tr>
     <tr>
-      <td>✂️ slice(start, end)</td>
+      <td>✂️ .slice(start, end)</td>
       <td>
         - 🆕 Returns a new copy of array From (start) Until before (end) <br>
         - If there is no (end), then until length <br>
@@ -222,9 +240,12 @@ setUser({...user, age: 21});
       </td>
     </tr>  
     <tr>
-      <td>🗑️ filter(<br>(element,index,array) => ()<br>)</td>
+      <td>🗑️ .filter(<br>(element,index,array) => ()<br>)</td>
       <td>
         - Creates a new array with all elements that pass the test. <br>
+        - The condition inside must return true or false.
+        - If true, the element remains in the array.
+        - If false, the element is removed.
         - If no elements pass the test, it returns an <strong>empty array</strong>. <br>
         - usage: 🗑️ To Delete item from Array. <br>
       </td>
@@ -254,11 +275,25 @@ setUser({...user, age: 21});
   </tr>
 </table>
 <hr><!--------------------------------------------------------------------------------------------->
-
+<strong>👀 Important</strong>
+- The part inside return() is called JSX.
+- Any code outside return() is just plain JavaScript. You can write if, for, while, switch, or anything else in JavaScript.
 <hr><!--------------------------------------------------------------------------------------------->    
+- In React, any event handler like onClick or onChange must have a function.
 
-<hr><!--------------------------------------------------------------------------------------------->    
-  </pre>
+  ● If the function doesn't have a parameter → there is no brackets() → you can write it directly: 
+<pre>
+onClick={handleClick}
+</pre>
+
+  ● There is a brackets() → ex:if the function requires a parameter →  you must use a callback function:
+    o Here, we're calling a callback function → React stores it, and when the user changes the checkbox, it's executed.
+    o Otherwise { if you write it directly and in brackets() } React will execute and call the function immediately when the JSX renders, not when the event occurs.
+<pre>
+onChange={() => toggleState(task.task_id)}
+onClick={() => handleClick()}
+</pre>
+</pre>
     <script>
     fetch("header.html")
       .then(res => res.text())

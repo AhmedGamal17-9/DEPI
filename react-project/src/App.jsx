@@ -7,7 +7,6 @@ import About from './About.jsx'
 import Contact from './Contact.jsx'
 import Counter from './counter.jsx'
 import Todo from './Todo.jsx'
-import To from './to.jsx'
 
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
         <div id="App_main_content">
           <Counter /> <hr />
           <Todo />    <hr />
-          <To />      <hr />
           <div id='App_main_content_ex'></div>
           <h2>Samsung</h2>
           <div id="App_main_content_cards-grid">

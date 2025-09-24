@@ -1,56 +1,67 @@
 import { useState } from "react";
 
+export default function Todo(){
 
-function Todo(){
   var initialtasks =[
-    {id:1 ,name:'f' ,done_state:false}
-   ,{id:2 ,name:'s' ,done_state:false}
-   ,{id:3 ,name:'t' ,done_state:false}
+    {id:1 ,name:'1' ,done_state:false}
   ]
-  const [tasks_state,set_tasks] = useState(initialtasks);
-  const [text,set_text] = useState('');
+  const [state_tasks,settask]=useState(initialtasks);
+  const[text,settext]=useState('');
 
-  function addtask(){}
-
-  function removetask(removed_task_id){
-    set_tasks(
-        tasks_state.filter(
-          exist_tasks =>(exist_tasks.id !== removed_task_id)
+  function addtask(){
+    if (text.trim() === '') return;    
+    settask([...state_tasks, {id :Date.now() ,name : text.trim() ,done_state :false }]);
+    settext('')
+  }
+  function deletetask(delete_id){
+    settask(
+      state_tasks.filter(
+        (task) => (
+          task.id !== delete_id 
+          // if(task.id === delete_id) return {false};
+          // return true
+        )
       )
     )
   }
-
-  function toggleState(changed_task_id){
-  set_tasks(
-    tasks_state.map(
-      exist_tasks => (
-        exist_tasks.id === changed_task_id 
-        ? { ...exist_tasks, done_state: !exist_tasks.done_state }
-        :exist_tasks)
+  function toggletask(done_id){
+    settask(
+      state_tasks.map(
+        (task)=>(
+          task.id === done_id ? {...task , done_state : !task.done_state} : task
+        )
+      )
     )
-  )
-
   }
-
-   return(
+  return(
     <div>
-      <input type="text" />
-      <button >add task</button>
+      <input 
+      onChange={ 
+        (event)=> settext(event.target.value)}      
+      value={text}
+      type="text"
+      placeholder="write a task..."
+      />
+      <button onClick={addtask}>add task</button>
       <ul>
-        {initialtasks.map(
-          (task) => (
-            <li>
-              <label >
-                <input
-                 type="checkbox" />
+        {
+        state_tasks.map(
+          (task)=>(
+           <li key={task.id}>
+              <label>
+                <input 
+                type="checkbox" 
+                onChange={() => toggletask(task.id)}                
+                checked={task.done_state}
+                />
                 {task.name} &nbsp;
-                <button>remove</button>
-              </label>
-            </li>
+                <button onClick={()=>deletetask(task.id)}>delete</button>
+             </label>
+           </li>
           )
-        )}
+        )
+        }
       </ul>
     </div>
   )
 }
-export default Todo
