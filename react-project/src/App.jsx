@@ -7,6 +7,7 @@ import About from './About.jsx'
 import Contact from './Contact.jsx'
 import Counter from './counter.jsx'
 import Todo from './Todo.jsx'
+import Chat from './chat.jsx'
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <Sidebar />
         <div id="App_main_content">
           <Counter /> <hr />
-          <Todo />    <hr />
+          <Todo />    <hr />          
+          <Chat /> <hr />
           <div id='App_main_content_ex'></div>
           <h2>Samsung</h2>
           <div id="App_main_content_cards-grid">
@@ -63,6 +65,7 @@ function App() {
               rate="★ ★ ★ ★ ☆"
             />
           </div>
+
           <About />
           <Contact />
         </div>

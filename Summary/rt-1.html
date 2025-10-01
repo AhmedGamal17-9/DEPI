@@ -11,7 +11,7 @@
 </head>
 <body>
  <div id="header"></div>
-  <pre class="prew">
+  <pre class="prew">    
 - Create React Project :
   ● npm  create  vite@latest  react-project-name
   ● cd react-project-path
@@ -97,18 +97,6 @@
     o ex : create 4 product card
     o create one componant
     o Reuse that componant 4 times
-  ● we use props: the properties we give to the component when calling it in App.jsx
-  ● each copy of conponant has its own props
-<hr><!--------------------------------------------------------------------------------------------->
-Calling Component in function :
-&lt;Component-name&gt;&lt;/Component-name&gt;
-or
-&lt;Component-name 
-prop1=valu
-prop2=valu
-prop3=valu
-prop4=valu
-/&gt;
 <hr><!--------------------------------------------------------------------------------------------->
 - Virtual DOM :
   ● React doesn't constantly modify the real DOM.
@@ -120,7 +108,7 @@ prop4=valu
   ● This process is called reconciliation, and the diff algorithm determines what changes.
 <hr><!--------------------------------------------------------------------------------------------->
 - jsx 
-  ● jsx = JavaScript XML
+  ● JSX (JavaScript XML) is the part inside return() only.
   ● It lets you write HTML code inside JavaScript/React files.
   ● Finally, it's converted to regular JavaScript code using Babel (or any compiler).
   ● Combines JavaScript logic + HTML syntax in one place.
@@ -188,6 +176,73 @@ or
 </pre>
   ● JSX is not understood by the browser.
   ● It is transformed to js by using Babel.lip.
+  ● <strong>👀 Important : </strong>Any code outside return() is just plain JavaScript. You can write if, for, while, switch, or anything else in JavaScript.  
+<hr><!--------------------------------------------------------------------------------------------->    
+📌👀 Important : calling functions in jsx :
+
+- If I want it to run immediately as soon as the component is render or re-render.
+    o Any-function 
+      🟢 Call it by Reference *Function-Name* with brackets().
+
+- If I want it to 
+                  run only when they need to be called. 
+                  run at a later time and we don't want React call the function immediately when the JSX renders
+  ● ex : inside event handlers like onClick or onChange
+    o Normal-function 
+      🟢 Case 1: If the function does not need arguments ➡️ Pass it as a Reference *Function-Name* without brackets().
+<pre>
+function App() {
+  function handleClick() {
+    console.log("Button clicked!");
+  }
+
+  return (
+    &lt;&gt;
+      &lt;button onClick={handleClick}&gt; Click &lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</pre>
+      🟢 Case 2: If the function does need arguments ➡️ calling it in a callback function Pass it as a Reference *Function-Name* with brackets().
+      🔵 Here, we're calling a callback function → React stores it, and when the event happens, it's executed.
+<pre>
+function App() {
+  function handleClick(para) {
+    console.log(para);
+  }
+
+  return (
+    &lt;&gt;
+      &lt;button onClick={() => handleClick('argu')}&gt; Click &lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</pre>
+    o Arrow-function , are often preferred for callbacks
+      🟢 Case 1: Pass it directly as an Anonymous function *Arrow-function* in the place of the call .
+<pre>
+function App() {
+  return (
+    &lt;&gt;
+    &lt;button onClick={() => console.log("Clicked!")}&gt; Click &lt;/button&gt;
+    &lt;/&gt;
+  );
+}  
+</pre>
+      🟢 Case 2: store it in a variable and then pass that variable
+<pre>
+function App() {
+  let handleClick= ()=> {
+    console.log("Button clicked!");
+  }
+
+  return (
+    &lt;&gt;
+      &lt;button onClick={handleClick}&gt; Click &lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</pre>  
 <hr><!--------------------------------------------------------------------------------------------->
 - ES Modules in JavaScript
   ● In JS, we can split code into files and export/import
@@ -214,6 +269,14 @@ export default sum;
 
   ● In index.html, if you want to use ES Module files directly in the browser:
 <pre>&lt;script type="module" src=""&gt;&lt;script/&gt;</pre>
+
+</pre>
+<pre class="prew">
+  what I learned to build :
+  react-project content
+  Header.jsx
+  Card.jsx
+  App.jsx
 </pre>
     <script>
     fetch("header.html")

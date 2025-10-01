@@ -1,24 +1,5 @@
-//              callback => asynchronous => promise => async + await
-
-console.log("----------------------------------Call back------------------------------------");
-function total(a,b,c){ // a, b, c parameters متغيرات يتم تعريفها في الفانكشن
-    console.log(a+b+c);
-}
-function times(){return 5;}
-console.log("----------------directly without ()---------------");
-total(20,34,times);
-console.log(times,typeof(times));     
-console.log("----------------directly with ()------------------");
-total(20,34,times());
-console.log(times(),typeof(times()));
-console.log("----------------store it in a variable------------");
-let d = times();
-console.log(typeof(d));
-total(20,34,d)
-console.log("----------------------------------asynchronous---------------------------------");
-
-console.log("----------------setInterval-----------------");
-var countDownDate = new Date("Sep 18, 2025 00:00:00").getTime();
+console.log("//=====setInterval=====");
+var countDownDate = new Date("Oct 5, 2025 00:00:00").getTime();
 console.log(countDownDate);
 
 
@@ -51,129 +32,58 @@ function y () {
   }
 };
 
-console.log("----------------setTimeout------------------");
+console.log("//=====setTimeout=====");//-------------------------------------------------------------------------------
 
-console.log("----------------------------------Promise--------------------------------------"); 
-// function pro(x){
-//     console.log(x);
-// }
-// let promiseObject = new Promise(
-//   function(s,r){
-//     let q = "2"; 
-//     if(q=="1"){
-//         s("1");
-//     }
-//     else if(q=="2"){
-//         r("2");
-//     }
-// }).then(
-//   function(val1) {pro(val1);    console.log("val1",val1);},
-//   function(val2) {pro(val2);    console.log("val2",val2);},
-// )
-// console.log("----------------------------------");
-// let myPromise = new Promise(function(resolve, reject) {
-// let success = true; // or false to simulate failure
-// if (success) {
-//   resolve("Operation done successfully"); } 
-// else {
-//   reject("Something went wrong"); }
-//     }
-// ).then(  function(message)  {console.log("Success: "+ message);} )
-// .catch( function(message)  {console.log("Error: "  + message);} );
-// console.log("----------------------------------");
-// doSomething(
-//   function(error, result) {
-//     if (error) {
-//         console.log(error);}
-//     else {
-//       doSomethingElse(result, function(error, final) {
-//         if (error) {
-//           console.log(error); }
-//         else {
-//           console.log(final);
-//         }
-//       });
-//     }  
-//   }
-// ).then(result => doSomethingElse(result))
-//  .then(final => console.log(final))
-//  .catch(error => console.log(error));
-// console.log("----------------------------------");
+console.log("--------------------Promise------------------");//--------------------------------------------------------
 
-// console.log("1: الكود العادي");
+let myPromise = new Promise(function(resolve, reject) {
+let success = true; // or false to simulate failure
+if (success) {
+  resolve("Operation done successfully"); } 
+else {
+  reject("Something went wrong"); }
+    }
+).then(  function(message)  {console.log("Success: "+ message);} )
+.catch( function(message)  {console.log("Error: "  + message);} );
 
-// let promise = new Promise((resolve, reject) => {
-//   resolve("2: الكود الي جوه then");
-// });
+console.log("//=====nested-Promise=====");//---------------------------------------------------------------------------
 
-// promise.then(msg => console.log(msg));
+let firstStep = new Promise(function(resolve, reject) {
+  console.log("🚀 بدء العملية الأولى...");
+  let success = true;
+  if (success) {
+    resolve("✅ العملية الأولى نجحت");
+  } else {
+    reject("❌ العملية الأولى فشلت");
+  }
+});
 
-// console.log("3: الكود العادي");
-// console.log("----------------------------------async and await------------------------------");
-// console.log("---------------async---------------");
+firstStep
+.then(result1 => {
+  console.log(result1); // نطبع نتيجة العملية الأولى
 
-// let r = async function asfun(){
-//     let x = 10;
-//     console.log(x , typeof(x));
-//     return x;
-// }
-// //console.log(r(), typeof(r()));
-// //console.log(r, typeof(r));
-// // console.log(r())
-// //r();
-// //console.log(asfun(), typeof(asfun()));
-// //console.log(asfun, typeof(asfun));
+  return new Promise(function(resolve, reject) {
+    console.log("🔄 بدء العملية الثانية...");
+    let success = true;
 
-// console.log("------------without await---------------");
-// function getNumber() {
-//   return new Promise(resolve => {
-//     setTimeout(() => resolve(42), 2000);
-//   });
-// }
-
-// getNumber().then(num => {
-//   console.log("The number is:", num);
-// });
-
-// console.log("This line runs before the number");
-// console.log("---------------with await---------------");
-// function getNumber() {
-//   return new Promise(resolve => {
-//     setTimeout(() => resolve(42), 2000);
-//   });
-// }
-// async function showNumber() {
-//   console.log("Before await");
-//   let num = await getNumber(); // هنا الكود هيستنى 2 ثانية
-//   console.log("After await");
-//   console.log("The number is:", num);
-// }
-// showNumber();
-//------------------------------------------
-// function pro(x){
-//     console.log(x);
-// } 
-// async function fun1(){
-//     let fun2 = new Promise(function(s,r){
-//         let d = "welcomee";
-//         if(d=="welcome"){
-//             s("welcome");
-//         }else{
-//             r("not welcome");
-//         }
-//     }).then(
-//         function(val) {pro(val);},
-//         function(err) {pro(err);},);
-//         await fun2;
-//         console.log("ggggggggg");
-             
-// }
-// fun1();
-console.log("-----------------------------Example-----------------------------------");
+    if (success) {
+      resolve("✅ العملية الثانية نجحت");
+    } else {
+      reject("❌ العملية الثانية فشلت");
+    }
+  });
+})
+.then(result2 => {
+  console.log(result2); // نطبع نتيجة العملية الثانية
+  console.log("🎉 كل العمليات خلصت بنجاح!");
+})
+.catch(error => {
+  console.log(error); // يطبع أي خطأ لو حصل في أي خطوة
+});
+console.log("//=====Fetch=====");//-------------------------------------------------------------------------
 
 const btn = document.getElementById("btn");
- 
-let run = ()=>{
+var run = ()=>{
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(res=>{
         if(!res.ok){
@@ -197,3 +107,91 @@ let run = ()=>{
     })
 }
 btn.addEventListener("click", run);
+
+console.log("--------------------async and await------------------");//------------------------------------------------
+console.log("//=====without async and await=====");
+function getNumber() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(42), 2000);
+  });
+}
+
+getNumber().then(num => {
+  console.log("The number is:", num);
+});
+
+console.log("This line runs before the number");
+
+console.log("//=====async=====");
+
+async function asfun(){
+    let x = 10;
+    console.log(x , typeof(x));
+    return x;
+}
+console.log(asfun(), typeof(asfun()));
+console.log(asfun, typeof(asfun));
+console.log("-----مثال اخر-----");//----------------------------------------------------------------------------------
+let r = async function (){
+    let x = 10;
+    console.log(x , typeof(x));
+    return x;
+}
+console.log(r(), typeof(r()));
+console.log(r, typeof(r));
+console.log("//=====await=====");//------------------------------------------------------------------------------------
+
+async function getNumber() {
+  return new Promise(
+    (resolve,reject) => {
+      setTimeout(
+        () => resolve("rs2"), 2000
+      );
+      setTimeout(
+        () => reject("rj3"), 3000
+      );      
+    }
+  );
+};
+
+async function showNumber() {
+  console.log("Before await");
+  let num = await getNumber(); // هنا الكود هيستنى 2 ثانية
+  console.log("After await");
+  console.log("The number is:", num);
+  return num;
+
+}
+showNumber();
+
+console.log("-----مثال اخر-----");//----------------------------------------------------------------------------------
+function pro(x){
+    console.log(x);
+} 
+async function fun1(){
+    let fun2 = new Promise(function(s,r){
+        let d = "welcomee";
+        if(d=="welcome"){
+            s("welcome");
+        }else{
+            r("not welcome");
+        }
+    }).then(
+        function(val) {pro(val);},
+        function(err) {pro(err);},);
+        await fun2;
+        console.log("ggggggggg");
+             
+}
+fun1();
+console.log("--------------ترتيب ظهور البروميس في الكونسول---------------");//--------------------------------------
+
+console.log("1: الكود العادي");
+let promise = new Promise((resolve, reject) => {
+  resolve("2: الكود الي جوه then");
+});
+
+promise.then(msg => console.log(msg));
+
+console.log("3: الكود العادي");
+

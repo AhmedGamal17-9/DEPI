@@ -12,20 +12,23 @@
 <body>
  <div id="header"></div>
     <p id="demo"></p>
+    <h2>🔎Open js 6.js to view Practical Examples (Code in Action)</h2>
   <pre class="prew">
-<h2>Callback Function :</h2>
-- function passed as an argument to another function, intended to be executed at a later time
-- parameter : variable in the declaration of function
-- argument : variable in the call of function
-- If we want to use a function as an argument,
-we can either pass it directly with () or 
-store it in a variable and then pass that variable when calling the function.
-- 
-<h2>asynchronous :</h2>
--JavaScript doesn't wait for a long-running operation, 
-it starts it and completes the rest of the code, 
-and when the operation is finished,
-it returns to executing the associated code (using callback, promises, or async/await).
+- Initially, code execution in JavaScript was <b style="font-size: x-large;">Synchronous (sequential) :</b>
+  ● This means that the next line wouldn't run until the previous one finished.
+  ● Any function wouldn't start until the one before it finished completely.
+  ● This meant you couldn't pause a process and start something else (such as waiting for a data download or a response from the server) and then resume normally.
+- This is where the concept of <b style="font-size: x-large;">Callback</b> comes in:
+  ● function passed as an argument to another function.
+  ● <b>to be executed at a later time (we don't want it run immediately)   &lt;========================= 👀 Important</b> 
+  ● If we want to use a function as an argument,
+    o Normal-function 
+      🟢 Pass it as a Reference *Function-Name* without brackets().
+    o Arrow-function , are often preferred for callbacks
+      🟢 Case 1: Pass it directly as an Anonymous function *Arrow-function* in the place of the call .
+      🔵 Case 2: store it in a variable and then pass that variable
+<hr><!--------------------------------------------------------------------------------------------->   
+- setTimeout and setInterval are essentially callback-based APIs (meaning they are built on callbacks).
 
 - setInterval(function,time in milliseconds) : 
    1-Bilt-in function execute another function repeatedly every certain period of time.
@@ -47,36 +50,155 @@ it returns to executing the associated code (using callback, promises, or async/
     --------------------------------
     var x = setTimeout(y(){},1000);
    </pre>
-<h2>Promise</h2>
-    1- object that represents asynchronous operation, and its resulting value.
-    2- has 3 cases : pending---fulfilled or success---rejected or failure
-    3- have function inside it that take 2 parameters (resolve, reject)
-    4- resolve() : function parameter in .then() 
-    5- use .then() method to handle success case
-    6- reject()  : function parameter in .catch() 
-    7- use .catch() method to handle failur case
-    8- can chain multiple .then() and .catch() methods to run operations in sequence and handle errors if they occur.
+<hr><!--------------------------------------------------------------------------------------------->
+- But two problems appeared: Callback Hell and the delay that occurs as a result of waiting. 
+- This is where the concept of <b style="font-size: x-large;">asynchronous غير متزامنين \ محدش بيستني التاني </b> comes in:
+-JavaScript doesn't wait for a long-running operation, 
+it starts it and completes the rest of the code, 
+and when the operation is finished,
+it returns to executing the associated code (using callback, promises, or async/await).   
+<hr><!--------------------------------------------------------------------------------------------->    
+<b style="font-size: x-large;">Promise</b>
+    - object that represents asynchronous operation, and its resulting value.
+    - 📌 What makes me write Promise?
+      ● The main reason: When I have a process that will take a long time (asynchronous) and 
+                         I don't want to stop the entire program waiting for it,
+                         a Promise provides a cleaner and more organized way to handle the result "when it arrives" or "if an error occurs."
+      ● Without a Promise, you would have to write a callback inside a callback (which we call Callback Hell).
+      ● Examples:
+        o Fetching data from an API (fetch, axios).
+        o Reading/writing files (in Node.js).
+        o Time delays (setTimeout, setInterval).
+        o Handling multiple processes simultaneously   
+    - has 3 cases : pending---fulfilled or success---rejected or failure
+    - have function inside it that take 2 parameters (resolve, reject)
+    - use .then( resolve() ) method to handle success case
+    - resolve() : function argument in .then()
+    - use .catch( reject() ) method to handle failur case    
+    - reject()  : function argument in .catch() 
+    - can chain multiple .then() and .catch() methods to run operations in sequence and handle errors if they occur.
     <pre>
-      let myPromise = new Promise(function(resolve, reject) {
-        // asynchronous operation
-        resolve();
-        reject();
-    })
-    .then()
-    .catch();      
-    </pre>
-<h2>async + await</h2>
-1- async :
-  - Makes any function automatic returns Promise
-  - automatic define if it is fulfilled or rejected
+let myPromise = new Promise(
+function(resolve, reject) {
+  // asynchronous operation
+  resolve();
+  reject();
+})
+.then()
+.catch();
 
-2-await :
-  - can only be used inside an async function
-  - makes your code look and behave like synchronous code
-  - makes JavaScript pauses execution until the Promise is resolved (or rejected), before running the next line
-  </pre>
-  <pre class="prew">   
+//       or
+
+let myPromise = new Promise(
+  function(resolve, reject) {
+    // asynchronous operation
+    resolve();
+    reject();
+  });
+myPromise.then().catch();
+    </pre>
+<hr><!--------------------------------------------------------------------------------------------->    
+<b style="font-size: x-large;">fetch("URL")</b>
+- return promise
+- Used to make HTTP requests and handle responses asynchronously.
+- The response object contains information about the HTTP response, not the actual data.
+- response.ok : property that returns true if the HTTP response status code is in the range 200-299 (successful response), otherwise false
+- To access the data, you need to use response.json() to parse the JSON body(JSON text).
+- response.json() : converts JSON text from the response into a JavaScript object
+- It is a tool in JavaScript that allows you to connect to the API.
+<pre>
+  fetch("https://example.com")
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+</pre>    
+<hr><!--------------------------------------------------------------------------------------------->    
+<b style="font-size: x-large;">async + await</b>
+1- async :
+  - 📌 Why we use async?
+    ● When the function handles something that won't return a result immediately (asynchronous operation),
+      we will use promis, Instead of writing 
+<pre>
+function(){
+  return myPromise = new Promise(
+    function(resolve, reject) {
+    // asynchronous operation
+    resolve();
+    reject(); }
+  )
+.then()
+.catch(); 
+}
 </pre>
+      async will Makes any function automatic returns Promise.resolve() or Promise.reject() automatically.
+    ● automatic define if it is fulfilled or rejected
+    ● It gives us an advantage: using the function in other async functions by await.    
+    ● If you don't use async → you have to write a nested .then(), which is complicated
+      instead, in async we use try/catch it is better to manage, especially if you have more than one await.    
+    ● Examples:
+      o Fetching data from an API (fetch, axios).
+      o Reading/writing files (in Node.js).
+      o Dealing with databases (MongoDB, MySQL, etc.).
+      o Time delays (setTimeout, setInterval).
+      o Any operation that is heavy or relies on system resources.    
+<pre>
+function test1() {
+  return Promise.resolve(5);
+}
+console.log(typeof test1); // function
+console.log(typeof test1()); // object
+test1().then(x => console.log(typeof x)); //numper
+--------------------------------
+async function test2() {
+  return 5;
+}
+console.log(typeof test2); // function
+console.log(typeof test2()); // object
+</pre>
+    ● ⚠️ Important
+    ● async isn't "magic".
+    ● It only understands two things:
+    ● If function return a normal value, 
+      o it puts it inside an async-Promise  بمعني :  Async takes what is inside the return and puts it in async-Promise immediately without executing it.
+    ● If function return a Promise, it waits it to finish and returns its output inside an async-Promise.
+<pre>
+async function f3() {
+  return (resolve) => {
+    setTimeout(() => resolve("rs : 2"), 2000);
+  };
+}  
+console.log(f3());
+// console output :
+// ▼ Promise {&lt;fulfilled&gt;: f}
+      [[Prototype]]: Promise
+      [[PromiseState]]: "fulfilled"
+      [[PromiseResult]]: (resolve) => {...}
+---------------------------------------------------------------------------------------------      
+async function getNumber() {
+  return new Promise(
+    (resolve,reject) => {
+      setTimeout(
+        () => resolve("rs : 2"), 2000
+      );
+      setTimeout(
+        () => reject("rj : 3"), 3000
+      );      
+    }
+  );
+};
+console.log(getNumber());
+// console output :
+// ▼ Promise {&lt;pending&gt;}
+      [[Prototype]]: Promise
+      [[PromiseState]]: "fulfilled"
+      [[PromiseResult]]: "rs2"
+</pre>
+2-await :
+  - can only be used with promise inside an async function
+  - makes JavaScript pauses execution until the Promise is resolved (or rejected), before running the next line
+  - makes your code look and behave like synchronous code
+
+  </pre>
 <pre class="prew">
  1- new Data() : create a new date object with date and time -- empty, current date and time , or specific date and time
  2- .get time() : method that returns the number of milliseconds since January 1, 1970
@@ -88,21 +210,6 @@ it returns to executing the associated code (using callback, promises, or async/
     * https://api.github.com/users/octocat
     * https://reqres.in/api/users
     * https://dog.ceo/api/breeds/image/random
- 5- fetch("URL") :
-  - return promise
-  - Used to make HTTP requests and handle responses asynchronously.
-  - The response object contains information about the HTTP response, not the actual data.
-  - response.ok : property that returns true if the HTTP response status code is in the range 200-299 (successful response), otherwise false
-  - To access the data, you need to use response.json() to parse the JSON body(JSON text).
-  - response.json() : converts JSON text from the response into a JavaScript object
-  - It is a tool in JavaScript that allows you to connect to the API.
-  -
-  <pre>
-  fetch("https://example.com")
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
-  </pre>
 </pre>
 <ul id="ul"></ul>
 <button id="btn">click</button>

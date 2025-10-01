@@ -96,6 +96,16 @@ console.log(typeof(function_name2));
 1- Accessing a function before it's defined (Hosting)
 2- return
 */
+console.log('----------------------------------');
+/* 
+- parameter : variable in the declaration of function
+- argument : variable in the call of function
+
+function(parameter){
+...code
+}
+function(argument);
+*/
 console.log('----------------------------------arrow function--------------------------------');
 /*
 1- The Arrow Function itself doesn't have a direct "name."

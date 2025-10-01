@@ -12,22 +12,271 @@
 <body>
  <div id="header"></div>
   <pre class="prew">
+<h2>lazy initialization in useState</h2>
+- When we create useState ➡️ React takes the initialValue and sets it to state.
+- However: 
+  ● If the initialValue is simple (like a number or a small array), no problem.
+  ● If the initialValue is the result of a heavy calculation or a function call, it will run every time the component is re-render (even if state doesn't change!).
+- 🟢 Example :
+<pre>
+import { useState } from 'react'
 
-●  
+export default function Counter() {
 
-- 
-  ●  
-____________________________________________________________
-- 
-  ●  
-____________________________________________________________
-- 
-  ●  
-____________________________________________________________
-- 
-  ●  
-____________________________________________________________
- 
+  function heavyCalculation() {
+    console.log("Heavy calculation running...");
+    return 1000; // Assume it returned a number after a heavy calculation
+  }
+
+  const [count, setCount] = useState(heavyCalculation());
+
+  return (
+    &lt;div&gt;
+    &lt;p&gt;{count}&lt;/p&gt;
+    &lt;button onClick={() => setCount(c => c + 1)}&gt; + &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</pre >
+  ● 🔍 What happens here?
+    o ✅ On the first render, heavyCalculation() runs.
+    o ❌ On every re-render (due to any other state), heavyCalculation() runs again unnecessarily.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+<h3>With Lazy Initialization</h3>
+- if we want react doesn't execute initialValue every time re-render
+- execute it only once at the first render, and then stores the value.
+- 🔵 Example :
+<pre>
+import { useState } from 'react'
+
+export default function Counter() {
+
+  function heavyCalculation() {
+    console.log("Heavy Calculation is running...");
+    return 1000;
+  }
+
+  const [count, setCount] = useState(() => heavyCalculation());
+
+  return (
+    &lt;div&gt;
+    &lt;p&gt;{count}&lt;/p&gt;
+    &lt;button onClick={() => setCount(c => c + 1)}&gt; + &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+</pre >
+  ● 🔍 What happens here?
+    o The first time the component is rendered, React will execute this function and return the value (1000).
+    o Subsequent times (re-render) will not run it again.
+
+- 📌 Summary
+  ● useState(value): Calculates the value every render (even if it's not used).
+  ● useState(() => value): Calculates it only once (lazy initialization).
+  ● If the value is simple, the two are the same.
+  ● If the value is heavy, it's better to use a function for performance.
+<hr><!--------------------------------------------------------------------------------------------->
+📌 What is prop?
+  ● Prop = Short of Properties.
+  ● can be any data type: (primitive,non-primitive data types).
+  ● way to tranfare data bettwen components
+  ● only one way data-flow : from father-component to son-component()
+
+📌 Why do we use it?
+  ● reuse the same component with different values
+  ● prop in father-component => write and read
+  ● prop in son-component => readonly
+  ● but if we want to change data internally in son-component we need to use : state & hooks
+
+📌 What is prop drillin?
+  ● problem happens when transfer prop bettwen more than 2 level
+
+📌 How do we use it?
+- syntax :
+  ● import child component in parent-code-page
+  ● inside parent component => inside return => inside opening tag of <Child> Enter the name of the prop and assign it a value.
+  ● Create a parameter(props) in a child component
+    // props => object contains all the values that the parent passed to the child.
+  ● use those props inside child component by {props.propName}
+<pre>
+function Parent() {
+  const data = "Hello from Parent"; // مثال على الداتا
+  return (
+    &lt;div&gt;
+      &lt;Child 
+      data={data} 
+      name='Ahmed'
+      /&gt;
+    &lt;/div&gt;
+  )
+}
+-------------------------------------------------------
+
+function Child(props) { 
+  return (
+    &lt;div&gt;
+      {props.data} - {props.name}
+    &lt;/div&gt;
+  )
+}
+</pre>
+
+  ● If you want to retrieve specific values directly instead of writing props.data, use destructuring:
+<pre>
+function Child({ data, name }) { 
+  return (
+    &lt;div&gt;
+      {data} - {name}
+    &lt;/div&gt;
+  )
+}
+-------------------------------------------------------
+function Parent() {
+  const data = "Hello from Parent"; // مثال على الداتا
+  return (
+    &lt;div&gt;
+      &lt;Child 
+      data={data} 
+      name='Ahmed'
+      /&gt;
+    &lt;/div&gt;
+  )
+}
+</pre>
+● Changing prop data internally by Child using State → Each child maintains its own local copy of the data.
+<pre>
+export default function Parent() {
+  const data = "Hello from Parent";
+
+  return (
+    &lt;div&gt;
+      &lt;Child initialData={data} /&gt;
+    &lt;/div&gt;
+  );
+}
+-------------------------------------------------------
+import { useState } from "react";
+
+function Child({ initialData }) {
+  const [data, setData] = useState(initialData);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Data: {data}&lt;/p&gt;
+      &lt;button onClick={() => setData("Changed in Child")}&gt;
+        Change in Child
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</pre>
+  ● Changing prop data publicly by Parent using setState function as prop → Child triggers updates to Parent's state, affecting all childs using that state.
+<pre>
+export default function Parent() {
+  const [data, setData] = useState("Hello from Parent");
+
+  return (
+    &lt;div&gt;
+      &lt;Child data={data} changeData={setData} /&gt;
+    &lt;/div&gt;
+  );
+}
+-------------------------------------------------------
+import { useState } from "react";
+
+function Child1({ data, changeData }) {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Data: {data}&lt;/p&gt;  // Hello from Parent
+      &lt;button onClick={() => changeData("Child 1 changed")}&gt;
+        Change in Parent
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+-------------------------------------------------------
+function Child2({ data, changeData }) {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Data: {data}&lt;/p&gt; // Child 1 changed
+    &lt;/div&gt;
+  );
+}
+</pre>
+<hr><!--------------------------------------------------------------------------------------------->
+📌 What is useEffect?
+  ● It is a Hook that allows you to perform side effects in functional componentsAfter rendering or when certain values change.
+  ● Side effects are operations that occur outside the normal flow of data in the component.
+  ● Side effects are any operation that occurs "outside" the main UI.
+  ● Examples of side effects:
+    o Data fetching (API calls).
+    o Subscribing to events (window.addEventListener, window resize, scroll).
+    o Directly manipulating the DOM.
+    o Running a timer (setInterval, setTimeout).
+    o Handling localStorage.
+
+📌 Why do we use it?
+  ● Without useEffect, any code you put in a component's function will be executed immediately every time a render occurs, which can cause problems:
+    o An infinite loop occurs (for example, fetching data causes => change in state, causing => re-render component forever).
+    o Difficulty controlling when the code runs and when it stops.
+  ● useEffect helps you tell React:
+    o Run this code after rendering.
+    o Run this code only the first time.
+    o Run this code every time a certain value changes.
+
+📌 How do we use it?
+  ● Syntax : useEffect(callback function, dependency array)
+    o callback function: This function contains the logic for the side effect.
+    o dependency array: This array controls when the effect runs. 
+  ● If the dependency array is:
+    o Not provided: The effect runs after every render.
+    o An empty array []: The effect runs only once after the initial render (like componentDidMount).
+    o Contains values [prop1, state2]: The effect runs after the initial render and whenever any of the values in the dependency array change.
+
+📌 What is Cleanup function? 
+  ● If your effect needs to clean up resources ( unsubscribe from an event, clear a timer, WebSocket Subscription).
+  ● you can return a cleanup-function in the callback function to do it.
+  ● This cleanup function runs
+    o before the component unmounts
+                  OR
+    o before the effect runs again due to a dependency change  
+
+🔹 Why do we need it?
+  ● Prevent resource consumption
+  ● Prevent memory leaks (unnecessary memory consumption).
+  ● Life Analogy 🏠 : Imagine you entered a room and turned on the light.
+    o useEffect = You turned on the light.
+    o Cleanup = Before you leave, you must turn off the light so it doesn't stay on for nothing.
+<pre>
+import { useEffect, useState } from 'react';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // This effect runs once after the initial render (empty dependency array)
+    const intervalId = setInterval(() => {
+      setCount(prevCount => prevCount + 1);
+    }, 1000);
+
+    // Cleanup function: This runs once when the component unmounts
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []); // Empty dependency array means all code runs once
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Timer: {count} seconds&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</pre>
+</pre>
+<pre class="prew">
+  what I learned to build :
+    create Chat.jsx
 </pre>
     <script>
     fetch("header.html")
