@@ -8,6 +8,10 @@ import Contact from './Contact.jsx'
 import Counter from './counter.jsx'
 import Todo from './Todo.jsx'
 import Chat from './chat.jsx'
+import Use from './Use.jsx'
+import C from './C-example.jsx'
+import P from './P-example.jsx'
+import T from './T-example.jsx'
 
 
 function App() {
@@ -17,6 +21,9 @@ function App() {
       <div id="App_main">
         <Sidebar />
         <div id="App_main_content">
+          <T user_id={1} /> <hr />
+          <P/> <hr />
+          <Use/> <hr />
           <Counter /> <hr />
           <Todo />    <hr />          
           <Chat /> <hr />
@@ -65,7 +72,6 @@ function App() {
               rate="★ ★ ★ ★ ☆"
             />
           </div>
-
           <About />
           <Contact />
         </div>
@@ -74,3 +80,4 @@ function App() {
   );
 }
 export default App
+

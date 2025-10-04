@@ -204,75 +204,7 @@ function Child2({ data, changeData }) {
   );
 }
 </pre>
-<hr><!--------------------------------------------------------------------------------------------->
-📌 What is useEffect?
-  ● It is a Hook that allows you to perform side effects in functional componentsAfter rendering or when certain values change.
-  ● Side effects are operations that occur outside the normal flow of data in the component.
-  ● Side effects are any operation that occurs "outside" the main UI.
-  ● Examples of side effects:
-    o Data fetching (API calls).
-    o Subscribing to events (window.addEventListener, window resize, scroll).
-    o Directly manipulating the DOM.
-    o Running a timer (setInterval, setTimeout).
-    o Handling localStorage.
 
-📌 Why do we use it?
-  ● Without useEffect, any code you put in a component's function will be executed immediately every time a render occurs, which can cause problems:
-    o An infinite loop occurs (for example, fetching data causes => change in state, causing => re-render component forever).
-    o Difficulty controlling when the code runs and when it stops.
-  ● useEffect helps you tell React:
-    o Run this code after rendering.
-    o Run this code only the first time.
-    o Run this code every time a certain value changes.
-
-📌 How do we use it?
-  ● Syntax : useEffect(callback function, dependency array)
-    o callback function: This function contains the logic for the side effect.
-    o dependency array: This array controls when the effect runs. 
-  ● If the dependency array is:
-    o Not provided: The effect runs after every render.
-    o An empty array []: The effect runs only once after the initial render (like componentDidMount).
-    o Contains values [prop1, state2]: The effect runs after the initial render and whenever any of the values in the dependency array change.
-
-📌 What is Cleanup function? 
-  ● If your effect needs to clean up resources ( unsubscribe from an event, clear a timer, WebSocket Subscription).
-  ● you can return a cleanup-function in the callback function to do it.
-  ● This cleanup function runs
-    o before the component unmounts
-                  OR
-    o before the effect runs again due to a dependency change  
-
-🔹 Why do we need it?
-  ● Prevent resource consumption
-  ● Prevent memory leaks (unnecessary memory consumption).
-  ● Life Analogy 🏠 : Imagine you entered a room and turned on the light.
-    o useEffect = You turned on the light.
-    o Cleanup = Before you leave, you must turn off the light so it doesn't stay on for nothing.
-<pre>
-import { useEffect, useState } from 'react';
-
-function Timer() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    // This effect runs once after the initial render (empty dependency array)
-    const intervalId = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-
-    // Cleanup function: This runs once when the component unmounts
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []); // Empty dependency array means all code runs once
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;Timer: {count} seconds&lt;/p&gt;
-    &lt;/div&gt;
-  );
-}
-</pre>
 </pre>
 <pre class="prew">
   what I learned to build :

@@ -12,7 +12,165 @@
 <body>
  <div id="header"></div>
   <pre class="prew">
+    1:04:00
+📌 What is useEffect?
 
+  ● It is a Hook that allows you to perform side effects in functional components After rendering or when certain values change.
+  
+  ● Side effects are operations that occur outside the normal flow of data in the component.
+  
+  ● Side effects are any operation that occurs "outside" the main UI.
+<hr>📌 Why do we use it?
+
+  ● Without useEffect, any code you put in a component's function will be executed immediately every time a render occurs, which can cause problems:
+    o An infinite loop occurs (for example, fetching data causes => change in state, causing => re-render component forever).
+    o Difficulty controlling when the code runs and when it stops.
+
+  ● useEffect helps you tell React:
+    o Run this code after rendering.
+    o Run this code only the first time.
+    o Run this code every time a certain value changes.
+
+  ● Examples of side effects that we use useEffect to do it:
+    o Directly manipulating the DOM.
+      ◎change &lt;title&gt;.  
+    o Data fetching (API calls).
+    o Subscribing to events
+      ◎ WepSocket
+      ◎ window.addEventListener
+      ◎ window resize
+      ◎ scroll
+    o Running a timer
+      ◎ setTimeout
+      ◎ setInterval
+    o Handling localStorage. 
+
+  ● AbortController API
+    o js object to control or delete any asynchronous operations (fetch,wep,steam) without waiting for it to finish.
+      ◎ 1. create controller
+<pre>
+const controller = new AbortController();
+</pre>
+      ◎ 2. take signal of controller => to tracking API like fetch to know when cancel it
+      ◎ 3. We put signal inside asynchronous operation
+      ◎ 4. Sometimes we need to do more than one thing with cancellation, not just stop the asynchronous operation (cleanup)
+<pre>
+const signal = controller.signal;
+
+signal.addEventListener('abort', 
+  () => { 
+    //❌ The request was canceled, clean up the resources here!
+  }
+); 
+
+fetch(url, {signal});
+</pre>     
+      ◎ 5. .abort() => Method to cancel asynchronous operation :
+The first thing that happens is : signal.aborted === true .
+The second thing that happens is : Any asynchronous operation associated with it will be stopped immediately.
+The last thing that happens is : it throws a special Error called AbortError.
+This error is not due to a problem with the internet or the server. We cancelled the order ourselves.
+We catch this error in the catch() and ignore it.
+we're telling react: If the error was caused by us canceling the operation → do nothing (ignore it).
+<pre>
+controller.abort();
+      ⬇️
+if (err.name === 'AbortError') { 
+  // ignore
+}
+</pre>
+
+<hr>📌 How do we use it?
+
+  ● Syntax : useEffect(callback function, dependency array)
+    o A callback function: This function contains the logic for the side effect.
+    o An optional dependency array: This array controls when the effect runs.
+
+  ● حالاتها
+    o If the dependency array is not provided
+      ◎ useEffect(()=>{})
+      ◎ The effect runs after every render
+    o If the dependency array is an empty array
+      ◎ useEffect(()=>{}, [])
+      ◎ The effect runs only once after the initial render
+    o If the dependency array is contains values
+      ◎ The effect runs after the initial render and whenever any of the values in the dependency array change
+      ◎ useEffect(()=>{}, [prop1, state2])
+
+<hr>📌 What is Cleanup function? 
+
+  ● If your effect needs to clean up resources ( unsubscribe from an event, clear a timer, WebSocket Subscription).
+
+  ● you can <b style="font-size: x-large;">return</b> a cleanup-function in the <b style="font-size: x-large;">callback function</b> to do it.
+
+  ● This cleanup function <b style="font-size: x-large;">runs in two cases</b> :
+    o before the component unmounts
+    o before the effect runs again due to a dependency change  
+
+<hr>🔹 Why do we need it?
+
+  ● Prevent resource consumption
+
+  ● Prevent memory leaks (unnecessary memory consumption).
+
+  ● Life Analogy 🏠 : Imagine you entered a room and turned on the light.
+    o useEffect = You turned on the light.
+    o Cleanup = Before you leave, you must turn off the light so it doesn't stay on for nothing.
+
+<pre>
+import { useEffect, useState } from 'react';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // This effect runs once after the initial render (empty dependency array)
+    const intervalId = setInterval(() => {
+      setCount(prevCount => prevCount + 1);
+    }, 1000);
+
+    // Cleanup function: This runs once when the component unmounts
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []); // Empty dependency array means all code runs once
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Timer: {count} seconds&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</pre><hr>
+📌 The callback function inside useEffect must be synchronous.
+
+  ● React expects the return from useEffect to be either void (undefined) or a cleanup function.
+
+  ● If you async the callback function, it will return a Promise, which is not what React wants.
+
+  ● So we write a regular callback function with an async IIFE function inside it.
+<hr>
+📌 why we use IIFE?
+ 
+  ● IIFE = Immediately Invoked Function Expression
+  ● Sometimes I want to write a function and run it Immediately → without needing to give it a name or call it later.
+  ● Execute code only once
+  ● we want to write await / async function in useEffect
+  ● Syntax : 
+<pre>
+(function () {
+  console.log('Immediately run');
+})();
+</pre>
+    o The first two parentheses (function(){…}) → make the code to treat it as an expression rather than a declaration.
+    o The last two parentheses () → mean to run the function immediately.
+</pre>
+<pre class="prew">
+  what I learned to build :
+    Use.jsx
+    P-example.jsx
+    C-example.jsx
+    T-example.jsx
 </pre>
     <script>
     fetch("header.html")

@@ -98,19 +98,56 @@ let myPromise = new Promise(
 myPromise.then().catch();
     </pre>
 <hr><!--------------------------------------------------------------------------------------------->    
-<b style="font-size: x-large;">fetch("URL")</b>
-- return promise
-- Used to make HTTP requests and handle responses asynchronously.
-- The response object contains information about the HTTP response, not the actual data.
-- response.ok : property that returns true if the HTTP response status code is in the range 200-299 (successful response), otherwise false
-- To access the data, you need to use response.json() to parse the JSON body(JSON text).
-- response.json() : converts JSON text from the response into a JavaScript object
-- It is a tool in JavaScript that allows you to connect to the API.
+<b style="font-size: x-large;">fetch("URL",{options})</b>
+
+- A built-in JavaScript function used to make an HTTP request (like GET or POST) from our code to somewhere else (e.g., an API or a server) and handle responses asynchronously .
+
+- return promise (**response object**), which means we need to use .then or await to know the result.
+
+- Syntax :
+    ● url : the link to which we will send the request.
+    ● options (optional to write): An object that contains the settings for the request such as :
+      o method
+        ◎ POST : send new data to the server.
+        ◎ PUT : modifies or updates existing data entirely.
+        ◎ PATCH : modifies a portion of the data.
+        ◎ DELETE : deletes data (no body).
+        ◎ GET : retrieves data from the server (no body).
+      o header
+        ◎ Sends additional information to the server about the request or <strong>the data type</strong>.
+        ◎ The headers value must be object (key: value).
+      o body
+        ◎ Data sent with the request (only with POST, PUT, and PATCH).
+        ◎ Must be a string, FormData, Blob, or Buffer.
+      o signal
+        ◎ Sometimes you want to cancel an order if it takes too long or the user has changed their mind.
+        ◎  You can cancel the order using AbortController.
+
+- The response object contains information about the HTTP response (**Properties**), not the actual data.
+
+  ● status :
+    o The code number returned from the server (HTTP status code).
+
+  ● response.ok : 
+    o Boolean property in response object
+    o that returns true if the HTTP response status code is in the range 200-299 (successful response)
+    o Otherwise false
+
+  ● response.json() : 
+    o To access the data, you need to parse the JSON body(string) to JavaScript object.
+    o converts JSON text from the response into a JavaScript object
+    o Function returns a Promise, so you need to write await to get the data.
 <pre>
-  fetch("https://example.com")
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
+fetch("https://example.com")
+.then(response => response.json())
+.then(data => console.log(data))
+// { id: 1, name: "Ahmed" }
+.catch(error => console.error(error));
+----------------OR----------------------
+const res = await fetch("https://example.com");
+const data = await res.json();
+console.log(data);
+// { id: 1, name: "Ahmed" }
 </pre>    
 <hr><!--------------------------------------------------------------------------------------------->    
 <b style="font-size: x-large;">async + await</b>
@@ -200,12 +237,97 @@ console.log(getNumber());
 
   </pre>
 <pre class="prew">
- 1- new Data() : create a new date object with date and time -- empty, current date and time , or specific date and time
- 2- .get time() : method that returns the number of milliseconds since January 1, 1970
- 3- Math.floor() : round a number DOWN to the nearest integer{ex: 4.7 => 4}
-4- Web APIs : Application Programming Interface
-  - enable communication between client (browser) and server over HTTP
-  -Examples of endpoints:
+- Date() : Built-in object in JS 
+  ● Its function: handles time and dates (year, month, day, hour, minute, second, etc.).
+
+  ● It can retrieve the current date, create a new date from it, or modify existing dates.
+
+  ● create object :
+    o Current date and current time
+<pre>
+let now = new Date();
+console.log(now);
+// Fri Oct 03 2025 14:35:10 GMT+0200 (Eastern European Standard Time)
+</pre>
+    o On a specific date (String):
+<pre>
+let d = new Date("2025-12-25");
+console.log(d);
+// Thu Dec 25 2025
+</pre> 
+    o On a specific date (numbers):
+<pre>
+// Year, Month, Day, Hour, Minute, Second
+let d = new Date(2025, 11, 25, 10, 30, 0);
+console.log(d);
+// Thu Dec 25 2025 10:30:00
+</pre> 
+
+  ● have Methods inside it
+    o Data.now()
+      ◎ Returns an integer representing the current time, calculated in milliseconds, from the beginning of the "epoch time" until now.
+      ◎ epoch time : This is the beginning of computer calculations: January 1, 1970, at 00:00:00 UTC.
+
+    o Data.getTime() : method that returns the number of milliseconds since "epoch time"
+<hr>
+- Error() : Built-in object in JS
+
+  ● Its function: represents runtime errors and exceptions in JavaScript.  
+
+  ● It helps developers identify, describe, and handle errors in code.  
+    o Each error object contains a **message** and a **name**, and sometimes a **stack trace**.  
+
+  ● create object :
+    o Simple error:
+<pre>
+let err = new Error("Something went wrong!");
+console.log(err);
+// Error: Something went wrong!
+</pre>
+    o Throw an error:
+<pre>
+throw new Error("Something went wrong!");
+</pre>
+  ● Common properties inside Error object
+    o name
+      ◎ Returns the type of error.
+      ◎ Example:
+<pre>
+let err = new Error("Failed!");
+console.log(err.name); // "Error"
+</pre>
+    o message
+      ◎ The text message passed when creating the error.
+      ◎ Example:
+<pre>
+let err = new Error("Failed!");
+console.log(err.message); // "Failed!"
+</pre>
+    o stack
+      ◎ A string describing where the error is in the code.
+      ◎ Useful for debugging.
+<pre>
+let err = new Error("Debugging...");
+console.log(err.stack);
+// Shows call stack and where error occurred
+</pre>
+
+  ● Handling errors with try...catch
+<pre>
+try {
+  throw new Error("Something went wrong!");
+} catch (e) {
+  console.log("Caught error:", e.message); 
+}
+// Output: Caught error: Something went wrong!
+</pre>
+<hr>
+- Math.floor() : round a number DOWN to the nearest integer{ex: 4.7 => 4}
+<hr>
+- Web APIs : Application Programming Interface
+  ● enable communication between client (browser) and server over HTTP
+<hr>
+- Examples of endpoints:
     * https://jsonplaceholder.typicode.com/posts
     * https://api.github.com/users/octocat
     * https://reqres.in/api/users
